@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - TRIA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <nav>
+
+        <div class="logo-container">
+
+            <img src="images/logo.png" alt="TRIA Logo" class="logo">
+
+        </div>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="cart.html">Cart</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<section class="checkout">
+
+    <h2>Checkout</h2>
+
+    <form id="checkoutForm">
+
+        <input type="text" placeholder="Full Name" required>
+
+        <input type="email" placeholder="Email Address" required>
+
+        <input type="tel" placeholder="Phone Number" required>
+
+        <input type="text" placeholder="Full Address" required>
+
+        <select id="governorate" required>
+
+            <option value="50">Cairo - 50 EGP</option>
+            <option value="70">Giza - 70 EGP</option>
+            <option value="80">Alexandria - 80 EGP</option>
+            <option value="100">Other Governorates - 100 EGP</option>
+
+        </select>
+
+        <h3>Payment Method</h3>
+
+        <label>
+
+            <input type="radio" name="payment" value="Visa" required>
+
+            Visa 💳
+
+        </label>
+
+        <br><br>
+
+        <label>
+
+            <input type="radio" name="payment" value="Cash" required>
+
+            Cash on Delivery 💵
+
+        </label>
+
+        <br><br>
+
+        <h3 id="shipping">
+
+            Shipping: 50 EGP
+
+        </h3>
+        <h3 id="subtotal">
+    Subtotal: 0 EGP
+</h3>
+
+<h2 id="totalPrice">
+    Total: 0 EGP
+</h2>
+
+        <button type="submit">
+
+            Place Order
+
+        </button>
+
+    </form>
+
+</section>
+
+
+<script>
+
+const governorate = document.getElementById("governorate");
+const shipping = document.getElementById("shipping");
+const subtotal = document.getElementById("subtotal");
+const totalPrice = document.getElementById("totalPrice");
+const checkoutForm = document.getElementById("checkoutForm");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let productsTotal = 0;
+
+cart.forEach(product => {
+
+    productsTotal += Number(product.price);
+
+});
+
+subtotal.innerHTML = "Subtotal: " + productsTotal + " EGP";
+
+function updateTotal(){
+
+    let shippingCost = Number(governorate.value);
+
+    shipping.innerHTML = "Shipping: " + shippingCost + " EGP";
+
+    totalPrice.innerHTML =
+    "Total: " + (productsTotal + shippingCost) + " EGP";
+
+}
+
+updateTotal();
+
+governorate.addEventListener("change", updateTotal);
+
+checkoutForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    localStorage.removeItem("cart");
+
+    window.location.href = "success.html";
+
+});
+
+</script>
+
+</body>
+
+</html>

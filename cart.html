@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart - TRIA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <nav>
+
+        <div class="logo-container">
+
+            <img src="images/logo.png" alt="TRIA Logo" class="logo">
+
+        </div>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="cart.html">Cart</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<section class="cart">
+
+    <h2>Your Cart</h2>
+
+    <div id="cartItems"></div>
+
+    <h3 id="total">Total: 0 EGP</h3>
+
+    <a href="checkout.html">
+
+        <button class="checkout-btn">
+
+            Proceed To Checkout
+
+        </button>
+
+    </a>
+
+</section>
+
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let cartItems = document.getElementById("cartItems");
+
+let total = 0;
+
+function displayCart(){
+
+    cartItems.innerHTML = "";
+
+    total = 0;
+
+    if(cart.length === 0){
+
+        cartItems.innerHTML = "<p>Your cart is empty.</p>";
+
+        document.getElementById("total").innerHTML = "Total: 0 EGP";
+
+        return;
+
+    }
+
+    cart.forEach((product,index)=>{
+
+        total += Number(product.price);
+
+        cartItems.innerHTML += `
+
+        <div class="cart-item">
+
+            <div>
+
+                <h3>${product.name}</h3>
+
+                <p>${product.price} EGP</p>
+
+            </div>
+
+            <button onclick="removeItem(${index})">
+
+                Remove
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById("total").innerHTML =
+    "Total: " + total + " EGP";
+
+}
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    localStorage.setItem("cart",JSON.stringify(cart));
+
+    displayCart();
+
+}
+
+displayCart();
+
+</script>
+
+</body>
+
+</html>

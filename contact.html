@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - TRIA</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>TRIA</h1>
+
+<h2>Contact Us</h2>
+
+<form id="contactForm">
+
+    <input type="text" placeholder="Name">
+
+    <input type="email" placeholder="Email">
+
+    <textarea placeholder="Message"></textarea>
+
+    <button type="submit">Send</button>
+
+</form>
+
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    alert("Your message has been sent successfully!");
+
+});
+</script>
+
+
+</body>
+</html>
