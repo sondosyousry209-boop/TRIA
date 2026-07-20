@@ -18,11 +18,23 @@
 </head>
 
 <body>
-    <div id="loader">
+   <div id="loader">
 
     <h1>TRIA</h1>
 
 </div>
+
+<script>
+    window.addEventListener("load", function () {
+
+        const loader = document.getElementById("loader");
+
+        if (loader) {
+            loader.style.display = "none";
+        }
+
+    });
+</script>
 
     <!-- ================= HEADER ================= -->
 
