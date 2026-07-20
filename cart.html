@@ -1,18 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cart - TRIA</title>
+<title>Cart - TRIA</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+```
 
 </head>
 
 <body>
+
+```
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -24,7 +30,11 @@
 
         </div>
 
-        <ul>
+        <div class="menu-toggle" id="menuToggle">
+            ☰
+        </div>
+
+        <ul id="navLinks">
 
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
@@ -39,13 +49,17 @@
 </header>
 
 
+<!-- ================= CART ================= -->
+
 <section class="cart">
 
     <h2>Your Cart</h2>
 
     <div id="cartItems"></div>
 
-    <h3 id="total">Total: 0 EGP</h3>
+    <h3 id="total">
+        Total: 0 EGP
+    </h3>
 
     <a href="checkout.html">
 
@@ -60,76 +74,104 @@
 </section>
 
 
+<!-- ================= CART SCRIPT ================= -->
+
 <script>
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-let cartItems = document.getElementById("cartItems");
+    let cartItems = document.getElementById("cartItems");
 
-let total = 0;
+    let total = 0;
 
-function displayCart(){
 
-    cartItems.innerHTML = "";
+    function displayCart() {
 
-    total = 0;
+        cartItems.innerHTML = "";
 
-    if(cart.length === 0){
+        total = 0;
 
-        cartItems.innerHTML = "<p>Your cart is empty.</p>";
 
-        document.getElementById("total").innerHTML = "Total: 0 EGP";
+        if (cart.length === 0) {
 
-        return;
+            cartItems.innerHTML = `
+                <p class="empty-cart">
+                    Your cart is empty.
+                </p>
+            `;
+
+            document.getElementById("total").innerHTML =
+                "Total: 0 EGP";
+
+            return;
+
+        }
+
+
+        cart.forEach((product, index) => {
+
+            total += Number(product.price);
+
+
+            cartItems.innerHTML += `
+
+                <div class="cart-item">
+
+                    <div class="cart-item-info">
+
+                        <h3>
+                            ${product.name}
+                        </h3>
+
+                        <p>
+                            ${product.price} EGP
+                        </p>
+
+                    </div>
+
+
+                    <button onclick="removeItem(${index})">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+
+        document.getElementById("total").innerHTML =
+            "Total: " + total + " EGP";
 
     }
 
-    cart.forEach((product,index)=>{
 
-        total += Number(product.price);
+    function removeItem(index) {
 
-        cartItems.innerHTML += `
+        cart.splice(index, 1);
 
-        <div class="cart-item">
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
 
-            <div>
+        displayCart();
 
-                <h3>${product.name}</h3>
+    }
 
-                <p>${product.price} EGP</p>
-
-            </div>
-
-            <button onclick="removeItem(${index})">
-
-                Remove
-
-            </button>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById("total").innerHTML =
-    "Total: " + total + " EGP";
-
-}
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    localStorage.setItem("cart",JSON.stringify(cart));
 
     displayCart();
 
-}
-
-displayCart();
-
 </script>
+
+
+<!-- ================= MAIN SCRIPT ================= -->
+
+<script src="script.js"></script>
+```
 
 </body>
 
