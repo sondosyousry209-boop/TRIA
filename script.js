@@ -1,145 +1,230 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// ================= ADD TO CART =================
+
 document.querySelectorAll(".cart-btn").forEach(button => {
 
-    button.addEventListener("click", function(e){
+```
+button.addEventListener("click", function(e) {
 
-        e.preventDefault();
+    e.preventDefault();
 
-        let product = {
-            name: this.dataset.name,
-            price: this.dataset.price
-        };
+    let product = {
 
-        cart.push(product);
+        name: this.dataset.name,
 
-       localStorage.setItem("cart", JSON.stringify(cart));
+        price: this.dataset.price
 
-alert("✅ Product added to cart!");
+    };
 
-    });
+    cart.push(product);
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    alert("✅ Product added to cart!");
+
+});
+```
 
 });
 
-// Size Selection
+// ================= SIZE SELECTION =================
+
 document.querySelectorAll(".sizes").forEach(sizeContainer => {
 
-    const buttons = sizeContainer.querySelectorAll("button");
+```
+const buttons =
+    sizeContainer.querySelectorAll("button");
 
-    buttons.forEach(button => {
+buttons.forEach(button => {
 
-        button.addEventListener("click", function() {
+    button.addEventListener("click", function() {
 
-            buttons.forEach(btn => btn.classList.remove("active"));
+        buttons.forEach(btn => {
 
-            this.classList.add("active");
+            btn.classList.remove("active");
 
         });
 
+        this.classList.add("active");
+
     });
 
 });
-// Search Products
+```
 
-const searchInput = document.getElementById("searchInput");
+});
+
+// ================= SEARCH PRODUCTS =================
+
+const searchInput =
+document.getElementById("searchInput");
 
 if (searchInput) {
 
-    searchInput.addEventListener("keyup", function () {
+```
+searchInput.addEventListener("keyup", function() {
 
-        let value = searchInput.value.toLowerCase();
+    let value =
+        searchInput.value.toLowerCase();
 
-        let cards = document.querySelectorAll(".card");
+    let cards =
+        document.querySelectorAll(".card");
 
-        cards.forEach(card => {
+    cards.forEach(card => {
 
-            let title = card.querySelector("h3").textContent.toLowerCase();
+        let title =
+            card.querySelector("h3")
+                .textContent
+                .toLowerCase();
 
-            if (title.includes(value)) {
+        if (title.includes(value)) {
 
-                card.style.display = "block";
+            card.style.display = "block";
 
-            } else {
+        } else {
 
-                card.style.display = "none";
+            card.style.display = "none";
 
-            }
-
-        });
-
-    });
-
-}
-// Contact Form
-
-const contactForm = document.getElementById("contactForm");
-
-if(contactForm){
-
-    contactForm.addEventListener("submit", function(e){
-
-        e.preventDefault();
-
-        alert("✅ Your message has been sent successfully!");
-
-        contactForm.reset();
-
-    });
-
-}
-// Scroll To Top
-
-const topBtn = document.getElementById("topBtn");
-
-if(topBtn){
-
-    window.addEventListener("scroll", function(){
-
-        if(window.scrollY > 300){
-            topBtn.style.display = "block";
-        }else{
-            topBtn.style.display = "none";
         }
 
     });
 
-    topBtn.addEventListener("click", function(){
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-    });
+});
+```
 
 }
-// Loading Screen
 
-window.addEventListener("load", function(){
+// ================= CONTACT FORM =================
 
-    const loader = document.getElementById("loader");
+const contactForm =
+document.getElementById("contactForm");
 
-    if(loader){
+if (contactForm) {
 
-        setTimeout(function(){
+```
+contactForm.addEventListener(
+    "submit",
+    function(e) {
 
-            loader.style.opacity = "0";
+        e.preventDefault();
 
-            setTimeout(function(){
+        alert(
+            "✅ Your message has been sent successfully!"
+        );
 
-                loader.style.display = "none";
+        contactForm.reset();
 
-            },600);
+    }
+);
+```
 
-        },1000);
+}
+
+// ================= SCROLL TO TOP =================
+
+const topBtn =
+document.getElementById("topBtn");
+
+if (topBtn) {
+
+```
+window.addEventListener(
+    "scroll",
+    function() {
+
+        if (window.scrollY > 300) {
+
+            topBtn.style.display = "block";
+
+        } else {
+
+            topBtn.style.display = "none";
+
+        }
+
+    }
+);
+
+
+topBtn.addEventListener(
+    "click",
+    function() {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+```
+
+}
+
+// ================= LOADING SCREEN =================
+
+window.addEventListener(
+"load",
+function() {
+
+```
+    const loader =
+        document.getElementById("loader");
+
+    if (loader) {
+
+        setTimeout(
+            function() {
+
+                loader.style.opacity = "0";
+
+                setTimeout(
+                    function() {
+
+                        loader.style.display =
+                            "none";
+
+                    },
+                    600
+                );
+
+            },
+            1000
+        );
 
     }
 
-});
+}
+```
 
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+);
 
-menuToggle.addEventListener("click", function () {
-    navLinks.classList.toggle("active");
-});
+// ================= MOBILE MENU =================
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const navLinks =
+document.getElementById("navLinks");
+
+if (menuToggle && navLinks) {
+
+```
+menuToggle.addEventListener(
+    "click",
+    function() {
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+```
+
+}
