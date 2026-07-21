@@ -27,6 +27,7 @@
 
     <nav>
 
+
         <div class="logo-container">
 
             <img
@@ -40,6 +41,7 @@
 
         <ul>
 
+
             <li>
 
                 <a href="index.html">
@@ -49,6 +51,18 @@
                 </a>
 
             </li>
+
+
+            <li>
+
+                <button id="logoutBtn">
+
+                    Logout
+
+                </button>
+
+            </li>
+
 
         </ul>
 
@@ -63,6 +77,7 @@
 
 
     <div class="dashboard-header">
+
 
         <span>
 
@@ -84,15 +99,18 @@
 
         </p>
 
+
     </div>
 
 
     <!-- ================= DASHBOARD CARDS ================= -->
 
+
     <div class="dashboard-cards">
 
 
         <div class="dashboard-card">
+
 
             <h3>
 
@@ -107,10 +125,12 @@
 
             </strong>
 
+
         </div>
 
 
         <div class="dashboard-card">
+
 
             <h3>
 
@@ -125,10 +145,12 @@
 
             </strong>
 
+
         </div>
 
 
         <div class="dashboard-card">
+
 
             <h3>
 
@@ -143,6 +165,7 @@
 
             </strong>
 
+
         </div>
 
 
@@ -150,6 +173,7 @@
 
 
     <!-- ================= ORDERS ================= -->
+
 
     <div class="orders-section">
 
@@ -166,21 +190,54 @@
 
             <thead>
 
+
                 <tr>
 
-                    <th>Customer</th>
 
-                    <th>Phone</th>
+                    <th>
 
-                    <th>Governorate</th>
+                        Customer
 
-                    <th>Total</th>
+                    </th>
 
-                    <th>Status</th>
 
-                    <th>Action</th>
+                    <th>
+
+                        Phone
+
+                    </th>
+
+
+                    <th>
+
+                        Governorate
+
+                    </th>
+
+
+                    <th>
+
+                        Total
+
+                    </th>
+
+
+                    <th>
+
+                        Status
+
+                    </th>
+
+
+                    <th>
+
+                        Action
+
+                    </th>
+
 
                 </tr>
+
 
             </thead>
 
@@ -194,6 +251,7 @@
 
         </table>
 
+
     </div>
 
 
@@ -202,15 +260,18 @@
 
 <!-- ================= SUPABASE LIBRARY ================= -->
 
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <!-- ================= ADMIN SCRIPT ================= -->
 
+
 <script>
 
 
     // ================= SUPABASE CONNECTION =================
+
 
     const SUPABASE_URL =
 
@@ -234,6 +295,7 @@
 
 
     // ================= CHECK ADMIN LOGIN =================
+
 
     async function checkAdminLogin() {
 
@@ -273,6 +335,7 @@
 
     // ================= ELEMENTS =================
 
+
     const totalOrders =
 
         document.getElementById(
@@ -311,6 +374,7 @@
 
     // ================= LOAD ORDERS =================
 
+
     async function loadOrders() {
 
 
@@ -346,12 +410,14 @@
 
         // TOTAL ORDERS
 
+
         totalOrders.innerHTML =
 
             orders.length;
 
 
         // PENDING ORDERS
+
 
         const pending =
 
@@ -372,6 +438,7 @@
 
 
         // TOTAL REVENUE
+
 
         const revenue =
 
@@ -408,6 +475,7 @@
 
 
         // DISPLAY ORDERS
+
 
         ordersTable.innerHTML = "";
 
@@ -639,6 +707,7 @@
 
     // ================= UPDATE ORDER STATUS =================
 
+
     async function updateOrderStatus(
 
         orderId,
@@ -710,6 +779,7 @@
 
 
     // ================= DELETE ORDER =================
+
 
     async function deleteOrder(
 
@@ -789,7 +859,44 @@
     }
 
 
+    // ================= LOGOUT =================
+
+
+    const logoutBtn =
+
+        document.getElementById(
+
+            "logoutBtn"
+
+        );
+
+
+    logoutBtn.addEventListener(
+
+        "click",
+
+        async function() {
+
+
+            await supabaseClient
+
+                .auth
+
+                .signOut();
+
+
+            window.location.href =
+
+                "admin-login.html";
+
+
+        }
+
+    );
+
+
     // ================= START =================
+
 
     async function startAdminDashboard() {
 
@@ -800,6 +907,7 @@
 
 
         if (isLoggedIn) {
+
 
             loadOrders();
 
