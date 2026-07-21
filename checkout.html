@@ -668,8 +668,8 @@
 
     console.error("SUPABASE ERROR:", error);
 
-    alert(
-        error.message
+    showToast(
+        "❌ An error occurred while submitting the order."
     );
 
     return;
@@ -705,7 +705,7 @@
 
     <script src="script.js"></script>
 
-
+<div id="toast"></div>
 </body>
 
 </html>
