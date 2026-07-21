@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>TRIA Admin Login</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <section class="admin-login">
+
+
+        <div class="login-box">
+
+
+            <span>
+
+                TRIA
+
+            </span>
+
+
+            <h1>
+
+                Admin Login
+
+            </h1>
+
+
+            <p>
+
+                Login to access your dashboard.
+
+            </p>
+
+
+            <form id="loginForm">
+
+
+                <input
+
+                    type="email"
+
+                    id="email"
+
+                    placeholder="Admin Email"
+
+                    required
+
+                >
+
+
+                <input
+
+                    type="password"
+
+                    id="password"
+
+                    placeholder="Password"
+
+                    required
+
+                >
+
+
+                <button
+
+                    type="submit"
+
+                >
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+            <p
+
+                id="errorMessage"
+
+                class="error-message"
+
+            ></p>
+
+
+        </div>
+
+
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <script>
+
+
+        const SUPABASE_URL =
+
+            "https://qguofdaattdrbwbgtwuw.supabase.co";
+
+
+        const SUPABASE_KEY =
+
+            "sb_publishable_8n45f-xVky4i3zyJFrxk3A_PjhJLvzu";
+
+
+        const supabaseClient =
+
+            supabase.createClient(
+
+                SUPABASE_URL,
+
+                SUPABASE_KEY
+
+            );
+
+
+        const loginForm =
+
+            document.getElementById(
+
+                "loginForm"
+
+            );
+
+
+        const errorMessage =
+
+            document.getElementById(
+
+                "errorMessage"
+
+            );
+
+
+        loginForm.addEventListener(
+
+            "submit",
+
+            async function(e) {
+
+
+                e.preventDefault();
+
+
+                const email =
+
+                    document.getElementById(
+
+                        "email"
+
+                    ).value;
+
+
+                const password =
+
+                    document.getElementById(
+
+                        "password"
+
+                    ).value;
+
+
+                const {
+
+                    error
+
+                } =
+
+                    await supabaseClient
+
+                        .auth
+
+                        .signInWithPassword({
+
+                            email:
+
+                                email,
+
+                            password:
+
+                                password
+
+                        });
+
+
+                if (error) {
+
+
+                    errorMessage.textContent =
+
+                        "Invalid email or password.";
+
+
+                    return;
+
+                }
+
+
+                window.location.href =
+
+                    "admin.html";
+
+
+            }
+
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
