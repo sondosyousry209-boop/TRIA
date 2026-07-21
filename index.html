@@ -18,23 +18,7 @@
 </head>
 
 <body>
-   <div id="loader">
-
-    <h1>TRIA</h1>
-
-</div>
-
-<script>
-    window.addEventListener("load", function () {
-
-        const loader = document.getElementById("loader");
-
-        if (loader) {
-            loader.style.display = "none";
-        }
-
-    });
-</script>
+    
 
     <!-- ================= HEADER ================= -->
 
@@ -42,29 +26,27 @@
 
         <nav>
 
-            <div class="logo-container">
+    <div class="logo-container">
+        <img src="images/logo.png" alt="TRIA Logo" class="logo">
+    </div>
 
-                <img src="images/logo.png" alt="TRIA Logo" class="logo">
+    <div class="menu-toggle" id="menuToggle">
+        ☰
+    </div>
 
-            </div>
+    <ul id="navLinks">
 
-            <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="women.html">Women</a></li>
+        <li><a href="men.html">Men</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
 
-                <li><a href="#">Home</a></li>
+    </ul>
 
-                <li><a href="shop.html">Shop</a></li>
-
-                <li><a href="women.html">Women</a></li>
-
-                <li><a href="men.html">Men</a></li>
-
-                <li><a href="#about">About</a></li>
-
-               <li><a href="#contact">Contact</a></li>
-<li><a href="cart.html">Cart</a></li>
-            </ul>
-
-        </nav>
+</nav>
 
     </header>
 
@@ -184,17 +166,17 @@
 
     <p>We'd love to hear from you.</p>
 
-    <form id="contactForm"></form>
+    <form id="contactForm">
 
-        <input type="text" placeholder="Your Name" required>
+    <input type="text" placeholder="Your Name" required>
 
-        <input type="email" placeholder="Your Email" required>
+    <input type="email" placeholder="Your Email" required>
 
-        <textarea placeholder="Your Message" rows="6" required></textarea>
+    <textarea placeholder="Your Message" rows="6" required></textarea>
 
-        <button type="submit">Send Message</button>
+    <button type="submit">Send Message</button>
 
-    </form>
+</form>
 
 </section>
 
