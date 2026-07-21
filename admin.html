@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -13,7 +14,11 @@
 
 </head>
 
+
 <body>
+
+
+    <!-- ================= HEADER ================= -->
 
     <header>
 
@@ -21,18 +26,25 @@
 
             <div class="logo-container">
 
-                <img src="images/logo.png"
-                     alt="TRIA Logo"
-                     class="logo">
+                <img
+                    src="images/logo.png"
+                    alt="TRIA Logo"
+                    class="logo"
+                >
 
             </div>
+
 
             <ul>
 
                 <li>
+
                     <a href="index.html">
+
                         Back to Website
+
                     </a>
+
                 </li>
 
             </ul>
@@ -42,182 +54,462 @@
     </header>
 
 
+    <!-- ================= ADMIN DASHBOARD ================= -->
+
     <section class="admin-dashboard">
+
 
         <div class="dashboard-header">
 
-            <span>TRIA</span>
 
-            <h1>Admin Dashboard</h1>
+            <span>
+
+                TRIA
+
+            </span>
+
+
+            <h1>
+
+                Admin Dashboard
+
+            </h1>
+
 
             <p>
+
                 Manage your orders and track your business.
+
             </p>
 
+
         </div>
+
+
+        <!-- ================= DASHBOARD CARDS ================= -->
 
 
         <div class="dashboard-cards">
 
+
             <div class="dashboard-card">
 
-                <h3>Total Orders</h3>
+
+                <h3>
+
+                    Total Orders
+
+                </h3>
+
 
                 <strong id="totalOrders">
+
                     0
+
                 </strong>
+
 
             </div>
 
 
             <div class="dashboard-card">
 
-                <h3>Pending Orders</h3>
+
+                <h3>
+
+                    Pending Orders
+
+                </h3>
+
 
                 <strong id="pendingOrders">
+
                     0
+
                 </strong>
+
 
             </div>
 
 
             <div class="dashboard-card">
 
-                <h3>Total Revenue</h3>
+
+                <h3>
+
+                    Total Revenue
+
+                </h3>
+
 
                 <strong id="totalRevenue">
+
                     0 EGP
+
                 </strong>
 
+
             </div>
+
 
         </div>
 
 
+        <!-- ================= ORDERS ================= -->
+
+
         <div class="orders-section">
 
-            <h2>Recent Orders</h2>
+
+            <h2>
+
+                Recent Orders
+
+            </h2>
 
 
             <table>
 
+
                 <thead>
+
 
                     <tr>
 
-                        <th>Customer</th>
 
-                        <th>Phone</th>
+                        <th>
 
-                        <th>Governorate</th>
+                            Customer
 
-                        <th>Total</th>
+                        </th>
 
-                        <th>Status</th>
+
+                        <th>
+
+                            Phone
+
+                        </th>
+
+
+                        <th>
+
+                            Governorate
+
+                        </th>
+
+
+                        <th>
+
+                            Total
+
+                        </th>
+
+
+                        <th>
+
+                            Status
+
+                        </th>
+
 
                     </tr>
+
 
                 </thead>
 
 
                 <tbody id="ordersTable">
 
+
                     <!-- Orders will appear here -->
+
 
                 </tbody>
 
+
             </table>
 
+
         </div>
+
 
     </section>
 
 
+    <!-- ================= SUPABASE ================= -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
     <script>
 
-        let orders =
-            JSON.parse(
-                localStorage.getItem("orders")
-            ) || [];
+
+        // ================= SUPABASE CONNECTION =================
 
 
-        const totalOrders =
-            document.getElementById("totalOrders");
+        const SUPABASE_URL =
+
+            "https://qguofdaattdrbwbgtwuw.supabase.co";
 
 
-        const pendingOrders =
-            document.getElementById("pendingOrders");
+        const SUPABASE_KEY =
+
+           "sb_publishable_8n45f-xVky4i3zyJFrxk3A_PjhJLvzu"
 
 
-        const totalRevenue =
-            document.getElementById("totalRevenue");
+        const supabaseClient =
 
+            supabase.createClient(
 
-        const ordersTable =
-            document.getElementById("ordersTable");
+                SUPABASE_URL,
 
+                SUPABASE_KEY
 
-        totalOrders.innerHTML =
-            orders.length;
-
-
-        let pending =
-            orders.filter(
-                order =>
-                order.status === "Pending"
-            ).length;
-
-
-        pendingOrders.innerHTML =
-            pending;
-
-
-        let revenue =
-            orders.reduce(
-                (total, order) =>
-                total + Number(order.total),
-                0
             );
 
 
-        totalRevenue.innerHTML =
-            revenue + " EGP";
+        // ================= ELEMENTS =================
 
 
-        orders.forEach(order => {
+        const totalOrders =
 
-            let row =
-                document.createElement("tr");
+            document.getElementById(
 
+                "totalOrders"
 
-            row.innerHTML = `
-
-                <td>
-                    ${order.name}
-                </td>
-
-                <td>
-                    ${order.phone}
-                </td>
-
-                <td>
-                    ${order.governorate}
-                </td>
-
-                <td>
-                    ${order.total} EGP
-                </td>
-
-                <td>
-                    ${order.status}
-                </td>
-
-            `;
+            );
 
 
-            ordersTable.appendChild(row);
+        const pendingOrders =
 
-        });
+            document.getElementById(
+
+                "pendingOrders"
+
+            );
+
+
+        const totalRevenue =
+
+            document.getElementById(
+
+                "totalRevenue"
+
+            );
+
+
+        const ordersTable =
+
+            document.getElementById(
+
+                "ordersTable"
+
+            );
+
+
+        // ================= LOAD ORDERS =================
+
+
+        async function loadOrders() {
+
+
+            const {
+
+                data: orders,
+
+                error
+
+            } =
+
+                await supabaseClient
+
+                    .from("orders")
+
+                    .select("*")
+
+                    .order(
+
+                        "id",
+
+                        {
+
+                            ascending: false
+
+                        }
+
+                    );
+
+
+            // ================= ERROR =================
+
+
+            if (error) {
+
+
+                console.error(
+
+                    "SUPABASE ERROR:",
+
+                    error
+
+                );
+
+
+                return;
+
+            }
+
+
+            // ================= TOTAL ORDERS =================
+
+
+            totalOrders.innerHTML =
+
+                orders.length;
+
+
+            // ================= PENDING ORDERS =================
+
+
+            const pending =
+
+                orders.filter(
+
+                    order =>
+
+                        order.status ===
+
+                        "Pending"
+
+                ).length;
+
+
+            pendingOrders.innerHTML =
+
+                pending;
+
+
+            // ================= TOTAL REVENUE =================
+
+
+            const revenue =
+
+                orders.reduce(
+
+                    (
+
+                        total,
+
+                        order
+
+                    ) =>
+
+
+                        total +
+
+                        Number(
+
+                            order.total
+
+                        ),
+
+
+                    0
+
+                );
+
+
+            totalRevenue.innerHTML =
+
+                revenue +
+
+                " EGP";
+
+
+            // ================= DISPLAY ORDERS =================
+
+
+            ordersTable.innerHTML = "";
+
+
+            orders.forEach(
+
+                order => {
+
+
+                    const row =
+
+                        document.createElement(
+
+                            "tr"
+
+                        );
+
+
+                    row.innerHTML = `
+
+
+                        <td>
+
+                            ${order.name}
+
+                        </td>
+
+
+                        <td>
+
+                            ${order.phone}
+
+                        </td>
+
+
+                        <td>
+
+                            ${order.governorate}
+
+                        </td>
+
+
+                        <td>
+
+                            ${order.total}
+
+                            EGP
+
+                        </td>
+
+
+                        <td>
+
+                            ${order.status}
+
+                        </td>
+
+
+                    `;
+
+
+                    ordersTable.appendChild(
+
+                        row
+
+                    );
+
+
+                }
+
+            );
+
+
+        }
+
+
+        // ================= START =================
+
+
+        loadOrders();
+
 
     </script>
 
