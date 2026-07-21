@@ -217,12 +217,13 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
 
     e.preventDefault();
 
-    alert("Your message has been sent successfully!");
+    showToast("✅ Your message has been sent successfully!");
 
     this.reset();
 
 });
 </script>
+<div id="toast"></div>
 </body>
 
 </html>
