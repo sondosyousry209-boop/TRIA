@@ -205,7 +205,74 @@ if (menuToggle && navLinks) {
         function() {
 
             navLinks.classList.toggle("active");
+async function deleteOrder(orderId) {
 
+    const confirmDelete =
+        confirm(
+            "Are you sure you want to delete this order?"
+        );
+
+
+    if (!confirmDelete) {
+
+        return;
+
+    }
+
+
+    const {
+
+        error
+
+    } = await supabaseClient
+
+        .from("orders")
+
+        .delete()
+
+        .eq(
+
+            "id",
+
+            orderId
+
+        );
+
+
+    if (error) {
+
+        console.error(
+
+            "DELETE ERROR:",
+
+            error
+
+        );
+
+
+        alert(
+
+            "Could not delete order."
+
+        );
+
+
+        return;
+
+    }
+
+
+    alert(
+
+        "Order deleted successfully!"
+
+    );
+
+
+    loadOrders();
+
+}
+            
         }
     );
 
