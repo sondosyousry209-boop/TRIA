@@ -473,7 +473,139 @@
 
                         <td>
 
-                            ${order.status}
+
+                            <select
+
+                                class="status-select"
+
+                                onchange="updateOrderStatus(
+
+                                    ${order.id},
+
+                                    this.value
+
+                                )"
+
+                            >
+
+
+                                <option
+
+                                    value="Pending"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Pending"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Pending
+
+                                </option>
+
+
+                                <option
+
+                                    value="Processing"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Processing"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Processing
+
+                                </option>
+
+
+                                <option
+
+                                    value="Shipped"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Shipped"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Shipped
+
+                                </option>
+
+
+                                <option
+
+                                    value="Delivered"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Delivered"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Delivered
+
+                                </option>
+
+
+                                <option
+
+                                    value="Cancelled"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Cancelled"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Cancelled
+
+                                </option>
+
+
+                            </select>
+
 
                         </td>
 
@@ -491,6 +623,82 @@
                 }
 
             );
+
+
+        }
+
+
+        // ================= UPDATE ORDER STATUS =================
+
+
+        async function updateOrderStatus(
+
+            orderId,
+
+            newStatus
+
+        ) {
+
+
+            const {
+
+                error
+
+            } =
+
+                await supabaseClient
+
+                    .from("orders")
+
+                    .update({
+
+                        status:
+
+                            newStatus
+
+                    })
+
+                    .eq(
+
+                        "id",
+
+                        orderId
+
+                    );
+
+
+            if (error) {
+
+
+                console.error(
+
+                    "UPDATE ERROR:",
+
+                    error
+
+                );
+
+
+                alert(
+
+                    "Could not update order status."
+
+                );
+
+
+                return;
+
+            }
+
+
+            alert(
+
+                "Order status updated successfully!"
+
+            );
+
+
+            loadOrders();
 
 
         }
