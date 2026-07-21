@@ -1,97 +1,182 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart =
+    JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
 
 
 // ================= ADD TO CART =================
 
-document.querySelectorAll(".cart-btn").forEach(button => {
+document
+    .querySelectorAll(".cart-btn")
+    .forEach(button => {
 
-    button.addEventListener("click", function(e) {
+        button.addEventListener(
+            "click",
+            function(e) {
 
-        e.preventDefault();
+                e.preventDefault();
 
-        let product = {
 
-            name: this.dataset.name,
+                let product = {
 
-            price: this.dataset.price
+                    name:
+                        this.dataset.name,
 
-        };
+                    price:
+                        this.dataset.price
 
-        cart.push(product);
+                };
 
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
+
+                cart.push(product);
+
+
+                localStorage.setItem(
+
+                    "cart",
+
+                    JSON.stringify(cart)
+
+                );
+
+
+                alert(
+
+                    "✅ Product added to cart!"
+
+                );
+
+            }
+
         );
 
-        alert("✅ Product added to cart!");
-
     });
-
-});
 
 
 // ================= SIZE SELECTION =================
 
-document.querySelectorAll(".sizes").forEach(sizeContainer => {
+document
+    .querySelectorAll(".sizes")
+    .forEach(sizeContainer => {
 
-    const buttons =
-        sizeContainer.querySelectorAll("button");
 
-    buttons.forEach(button => {
+        const buttons =
 
-        button.addEventListener("click", function() {
+            sizeContainer
+                .querySelectorAll("button");
 
-            buttons.forEach(btn => {
 
-                btn.classList.remove("active");
+        buttons.forEach(button => {
 
-            });
 
-            this.classList.add("active");
+            button.addEventListener(
+
+                "click",
+
+                function() {
+
+
+                    buttons.forEach(btn => {
+
+
+                        btn.classList.remove(
+
+                            "active"
+
+                        );
+
+                    });
+
+
+                    this.classList.add(
+
+                        "active"
+
+                    );
+
+                }
+
+            );
 
         });
 
     });
-
-});
 
 
 // ================= SEARCH PRODUCTS =================
 
 const searchInput =
-    document.getElementById("searchInput");
+
+    document.getElementById(
+
+        "searchInput"
+
+    );
+
 
 if (searchInput) {
 
-    searchInput.addEventListener("keyup", function() {
 
-        let value =
-            searchInput.value.toLowerCase();
+    searchInput.addEventListener(
 
-        let cards =
-            document.querySelectorAll(".card");
+        "keyup",
 
-        cards.forEach(card => {
+        function() {
 
-            let title =
-                card.querySelector("h3")
-                .textContent
-                .toLowerCase();
 
-            if (title.includes(value)) {
+            let value =
 
-                card.style.display = "block";
+                searchInput.value
 
-            } else {
+                    .toLowerCase();
 
-                card.style.display = "none";
 
-            }
+            let cards =
 
-        });
+                document.querySelectorAll(
 
-    });
+                    ".card"
+
+                );
+
+
+            cards.forEach(card => {
+
+
+                let title =
+
+                    card
+                        .querySelector("h3")
+                        .textContent
+                        .toLowerCase();
+
+
+                if (
+
+                    title.includes(value)
+
+                ) {
+
+
+                    card.style.display =
+
+                        "block";
+
+
+                } else {
+
+
+                    card.style.display =
+
+                        "none";
+
+                }
+
+            });
+
+        }
+
+    );
 
 }
 
@@ -99,23 +184,38 @@ if (searchInput) {
 // ================= CONTACT FORM =================
 
 const contactForm =
-    document.getElementById("contactForm");
+
+    document.getElementById(
+
+        "contactForm"
+
+    );
+
 
 if (contactForm) {
 
+
     contactForm.addEventListener(
+
         "submit",
+
         function(e) {
+
 
             e.preventDefault();
 
+
             alert(
+
                 "✅ Your message has been sent successfully!"
+
             );
+
 
             contactForm.reset();
 
         }
+
     );
 
 }
@@ -124,31 +224,56 @@ if (contactForm) {
 // ================= SCROLL TO TOP =================
 
 const topBtn =
-    document.getElementById("topBtn");
+
+    document.getElementById(
+
+        "topBtn"
+
+    );
+
 
 if (topBtn) {
 
+
     window.addEventListener(
+
         "scroll",
+
         function() {
 
-            if (window.scrollY > 300) {
 
-                topBtn.style.display = "block";
+            if (
+
+                window.scrollY > 300
+
+            ) {
+
+
+                topBtn.style.display =
+
+                    "block";
+
 
             } else {
 
-                topBtn.style.display = "none";
+
+                topBtn.style.display =
+
+                    "none";
 
             }
 
         }
+
     );
 
 
     topBtn.addEventListener(
+
         "click",
+
         function() {
+
 
             window.scrollTo({
 
@@ -159,6 +284,7 @@ if (topBtn) {
             });
 
         }
+
     );
 
 }
@@ -166,114 +292,108 @@ if (topBtn) {
 
 // ================= LOADING SCREEN =================
 
-window.addEventListener("load", function() {
+window.addEventListener(
 
-    const loader =
-        document.getElementById("loader");
+    "load",
 
-    if (loader) {
+    function() {
 
-        setTimeout(function() {
 
-            loader.classList.add("hide");
+        const loader =
 
-            setTimeout(function() {
+            document.getElementById(
 
-                loader.remove();
+                "loader"
 
-            }, 600);
+            );
 
-        }, 1000);
+
+        if (loader) {
+
+
+            setTimeout(
+
+                function() {
+
+
+                    loader.classList.add(
+
+                        "hide"
+
+                    );
+
+
+                    setTimeout(
+
+                        function() {
+
+
+                            loader.remove();
+
+
+                        },
+
+                        600
+
+                    );
+
+                },
+
+                1000
+
+            );
+
+        }
 
     }
 
-});
+);
 
 
 // ================= MOBILE MENU =================
 
 const menuToggle =
-    document.getElementById("menuToggle");
 
-const navLinks =
-    document.getElementById("navLinks");
+    document.getElementById(
 
-if (menuToggle && navLinks) {
-
-    menuToggle.addEventListener(
-        "click",
-        function() {
-
-            navLinks.classList.toggle("active");
-async function deleteOrder(orderId) {
-
-    const confirmDelete =
-        confirm(
-            "Are you sure you want to delete this order?"
-        );
-
-
-    if (!confirmDelete) {
-
-        return;
-
-    }
-
-
-    const {
-
-        error
-
-    } = await supabaseClient
-
-        .from("orders")
-
-        .delete()
-
-        .eq(
-
-            "id",
-
-            orderId
-
-        );
-
-
-    if (error) {
-
-        console.error(
-
-            "DELETE ERROR:",
-
-            error
-
-        );
-
-
-        alert(
-
-            "Could not delete order."
-
-        );
-
-
-        return;
-
-    }
-
-
-    alert(
-
-        "Order deleted successfully!"
+        "menuToggle"
 
     );
 
 
-    loadOrders();
+const navLinks =
 
-}
-            
+    document.getElementById(
+
+        "navLinks"
+
+    );
+
+
+if (
+
+    menuToggle &&
+
+    navLinks
+
+) {
+
+
+    menuToggle.addEventListener(
+
+        "click",
+
+        function() {
+
+
+            navLinks.classList.toggle(
+
+                "active"
+
+            );
+
         }
+
     );
 
 }
