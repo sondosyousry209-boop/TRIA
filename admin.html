@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TRIA Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+            <div class="logo-container">
+
+                <img src="images/logo.png"
+                     alt="TRIA Logo"
+                     class="logo">
+
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Back to Website
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <section class="admin-dashboard">
+
+        <div class="dashboard-header">
+
+            <span>TRIA</span>
+
+            <h1>Admin Dashboard</h1>
+
+            <p>
+                Manage your orders and track your business.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-card">
+
+                <h3>Total Orders</h3>
+
+                <strong id="totalOrders">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>Pending Orders</h3>
+
+                <strong id="pendingOrders">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>Total Revenue</h3>
+
+                <strong id="totalRevenue">
+                    0 EGP
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="orders-section">
+
+            <h2>Recent Orders</h2>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Customer</th>
+
+                        <th>Phone</th>
+
+                        <th>Governorate</th>
+
+                        <th>Total</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="ordersTable">
+
+                    <!-- Orders will appear here -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        let orders =
+            JSON.parse(
+                localStorage.getItem("orders")
+            ) || [];
+
+
+        const totalOrders =
+            document.getElementById("totalOrders");
+
+
+        const pendingOrders =
+            document.getElementById("pendingOrders");
+
+
+        const totalRevenue =
+            document.getElementById("totalRevenue");
+
+
+        const ordersTable =
+            document.getElementById("ordersTable");
+
+
+        totalOrders.innerHTML =
+            orders.length;
+
+
+        let pending =
+            orders.filter(
+                order =>
+                order.status === "Pending"
+            ).length;
+
+
+        pendingOrders.innerHTML =
+            pending;
+
+
+        let revenue =
+            orders.reduce(
+                (total, order) =>
+                total + Number(order.total),
+                0
+            );
+
+
+        totalRevenue.innerHTML =
+            revenue + " EGP";
+
+
+        orders.forEach(order => {
+
+            let row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>
+                    ${order.name}
+                </td>
+
+                <td>
+                    ${order.phone}
+                </td>
+
+                <td>
+                    ${order.governorate}
+                </td>
+
+                <td>
+                    ${order.total} EGP
+                </td>
+
+                <td>
+                    ${order.status}
+                </td>
+
+            `;
+
+
+            ordersTable.appendChild(row);
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
