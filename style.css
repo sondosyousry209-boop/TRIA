@@ -1236,8 +1236,148 @@ footer p{
         flex-direction: column;
     }
 
-    .payment-option {
+    .payment-option {   
         min-width: 100%;
     }
+   /* ================= ADMIN DASHBOARD ================= */
+
+.admin-dashboard {
+    min-height: 100vh;
+    padding: 80px 8%;
+    background: var(--cream);
+}
+
+
+/* ================= DASHBOARD HEADER ================= */
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.dashboard-header span {
+    color: var(--gold);
+    font-size: 18px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.dashboard-header h1 {
+    color: var(--dark);
+    font-size: 42px;
+    margin: 12px 0;
+}
+
+.dashboard-header p {
+    color: var(--brown);
+    font-size: 16px;
+}
+
+
+/* ================= DASHBOARD CARDS ================= */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.dashboard-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--gold);
+}
+
+.dashboard-card h3 {
+    color: var(--brown);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.dashboard-card strong {
+    color: var(--dark);
+    font-size: 32px;
+}
+
+
+/* ================= ORDERS SECTION ================= */
+
+.orders-section {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+.orders-section h2 {
+    color: var(--dark);
+    margin-bottom: 25px;
+}
+
+
+/* ================= TABLE ================= */
+
+.orders-section table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+.orders-section th {
+    background: var(--dark);
+    color: var(--gold);
+    padding: 16px;
+    text-align: left;
+}
+
+.orders-section td {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    color: var(--brown);
+}
+
+.orders-section tr:hover {
+    background: var(--cream);
+}
+
+
+/* ================= STATUS ================= */
+
+.orders-section td:last-child {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .admin-dashboard {
+        padding: 50px 20px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 32px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-card {
+        padding: 25px;
+    }
+
+    .orders-section {
+        padding: 20px;
+    }
+
+}
 
 }
