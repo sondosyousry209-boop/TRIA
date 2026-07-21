@@ -2,105 +2,213 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Shop - TRIA</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-<div id="loader">
 
-    <h1>TRIA</h1>
+    <!-- ================= HEADER ================= -->
 
-</div>
-    <nav>
+    <header>
 
-        <div class="logo-container">
-    <a href="index.html">
-        <img src="images/logo.png" alt="TRIA Logo" class="logo">
-    </a>
-</div>
+        <nav>
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+            <div class="logo-container">
 
-    </nav>
+                <a href="index.html">
+
+                    <img src="images/logo.png"
+                         alt="TRIA Logo"
+                         class="logo">
+
+                </a>
+
+            </div>
+
+
+            <div class="menu-toggle" id="menuToggle">
+
+                ☰
+
+            </div>
+
+
+            <ul id="navLinks">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="shop.html">Shop</a>
+                </li>
+
+                <li>
+                    <a href="women.html">Women</a>
+                </li>
+
+                <li>
+                    <a href="men.html">Men</a>
+                </li>
+
+                <li>
+                    <a href="index.html#about">About</a>
+                </li>
+
+                <li>
+                    <a href="index.html#contact">Contact</a>
+                </li>
+
+                <li>
+                    <a href="cart.html">Cart</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= SHOP ================= -->
 
     <section class="shop">
 
         <h1>Our Collection</h1>
-<div class="search-box">
 
-   
 
-    <input type="text"id="searchInput" placeholder="Search for products...">
+        <!-- ================= SEARCH ================= -->
 
-    <button>Search</button>
+        <div class="search-box">
 
-</div>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for products..."
+            >
+
+            <button>
+                Search
+            </button>
+
+        </div>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
         <div class="products">
 
-            <!-- Product 1 -->
+
+            <!-- PRODUCT 1 -->
 
             <div class="card">
 
-                <img src="images/tshirt1.jpg" alt="Classic Beige T-Shirt">
+                <img
+                    src="images/tshirt1.jpg"
+                    alt="Classic Beige T-Shirt"
+                >
 
-                <h3>Classic Beige T-Shirt</h3>
+                <h3>
+                    Classic Beige T-Shirt
+                </h3>
 
-                <p>499 EGP</p>
+                <p>
+                    499 EGP
+                </p>
 
                 <a href="product1.html">
-                    <button>View Details</button>
+
+                    <button>
+                        View Details
+                    </button>
+
                 </a>
 
             </div>
 
-            <!-- Product 2 -->
+
+            <!-- PRODUCT 2 -->
 
             <div class="card">
 
-                <img src="images/tshirt2.jpg" alt="Oversized Brown T-Shirt">
+                <img
+                    src="images/tshirt2.jpg"
+                    alt="Oversized Brown T-Shirt"
+                >
 
-                <h3>Oversized Brown T-Shirt</h3>
+                <h3>
+                    Oversized Brown T-Shirt
+                </h3>
 
-                <p>549 EGP</p>
+                <p>
+                    549 EGP
+                </p>
 
                 <a href="product2.html">
-                    <button>View Details</button>
+
+                    <button>
+                        View Details
+                    </button>
+
                 </a>
 
             </div>
 
-            <!-- Product 3 -->
+
+            <!-- PRODUCT 3 -->
 
             <div class="card">
 
-                <img src="images/tshirt3.jpg" alt="Minimal White T-Shirt">
+                <img
+                    src="images/tshirt3.jpg"
+                    alt="Minimal White T-Shirt"
+                >
 
-                <h3>Minimal White T-Shirt</h3>
+                <h3>
+                    Minimal White T-Shirt
+                </h3>
 
-                <p>599EGP</p>
+                <p>
+                    599 EGP
+                </p>
 
                 <a href="product3.html">
-                    <button>View Details</button>
+
+                    <button>
+                        View Details
+                    </button>
+
                 </a>
 
             </div>
+
 
         </div>
 
     </section>
-<button id="topBtn">↑</button>
 
-<script src="script.js"></script>
+
+    <!-- ================= SCROLL TO TOP ================= -->
+
+    <button id="topBtn">
+        ↑
+    </button>
+
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>
