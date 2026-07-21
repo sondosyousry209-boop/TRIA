@@ -40,11 +40,7 @@ document
                 );
 
 
-                alert(
-
-                    "✅ Product added to cart!"
-
-                );
+               showToast("✅ Product added to cart!");
 
             }
 
@@ -205,13 +201,10 @@ if (contactForm) {
             e.preventDefault();
 
 
-            alert(
-
-                "✅ Your message has been sent successfully!"
-
-            );
-
-
+           
+showToast(
+    "✅ Your message has been sent successfully!"
+);
             contactForm.reset();
 
         }
@@ -395,5 +388,52 @@ if (
         }
 
     );
+
+}
+// ================= TRIA TOAST NOTIFICATION =================
+
+function showToast(message) {
+
+    const toast = document.createElement("div");
+
+    toast.className = "tria-toast";
+
+    toast.innerHTML = `
+
+        <div class="toast-icon">
+            ✓
+        </div>
+
+        <div class="toast-content">
+
+            <strong>TRIA</strong>
+
+            <span>${message}</span>
+
+        </div>
+
+        <div class="toast-progress"></div>
+
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(function() {
+
+        toast.classList.add("show");
+
+    }, 100);
+
+    setTimeout(function() {
+
+        toast.classList.remove("show");
+
+        setTimeout(function() {
+
+            toast.remove();
+
+        }, 500);
+
+    }, 3500);
 
 }
