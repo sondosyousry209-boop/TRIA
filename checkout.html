@@ -346,21 +346,111 @@
 
 
     checkoutForm.addEventListener(
-        "submit",
-        function (e) {
+    "submit",
+    function (e) {
 
-            e.preventDefault();
-
-
-            localStorage.removeItem("cart");
+        e.preventDefault();
 
 
-            window.location.href =
-                "success.html";
+        // Get selected payment method
+        const payment =
+            document.querySelector(
+                'input[name="payment"]:checked'
+            ).value;
 
-        }
 
-    );
+        // Get selected governorate name
+        const governorateName =
+            governorate.options[
+                governorate.selectedIndex
+            ].text;
+
+
+        // Create new order
+        const newOrder = {
+
+            name:
+                document.getElementById(
+                    "fullName"
+                ).value,
+
+            email:
+                document.getElementById(
+                    "email"
+                ).value,
+
+            phone:
+                document.getElementById(
+                    "phone"
+                ).value,
+
+            address:
+                document.getElementById(
+                    "address"
+                ).value,
+
+            governorate:
+                governorateName,
+
+            payment:
+                payment,
+
+            products:
+                cart,
+
+            subtotal:
+                productsTotal,
+
+            shipping:
+                Number(governorate.value),
+
+            total:
+                productsTotal +
+                Number(governorate.value),
+
+            status:
+                "Pending",
+
+            date:
+                new Date().toLocaleString()
+
+        };
+
+
+        // Get old orders
+        let orders =
+            JSON.parse(
+                localStorage.getItem(
+                    "orders"
+                )
+            ) || [];
+
+
+        // Add new order
+        orders.push(newOrder);
+
+
+        // Save orders
+        localStorage.setItem(
+            "orders",
+            JSON.stringify(
+                orders
+            )
+        );
+
+
+        // Clear cart
+        localStorage.removeItem(
+            "cart"
+        );
+
+
+        // Go to success page
+        window.location.href =
+            "success.html";
+
+    }
+);
 
 </script>
 
