@@ -1236,10 +1236,12 @@ footer p{
         flex-direction: column;
     }
 
-    .payment-option {   
+    .payment-option {
         min-width: 100%;
     }
-   /* ================= ADMIN DASHBOARD ================= */
+
+}
+/* ================= ADMIN DASHBOARD ================= */
 
 .admin-dashboard {
     min-height: 100vh;
@@ -1274,7 +1276,7 @@ footer p{
 }
 
 
-/* ================= CARDS ================= */
+/* ================= DASHBOARD CARDS ================= */
 
 .dashboard-cards {
     display: grid;
@@ -1308,7 +1310,7 @@ footer p{
 }
 
 
-/* ================= ORDERS ================= */
+/* ================= ORDERS SECTION ================= */
 
 .orders-section {
     background: var(--white);
@@ -1329,7 +1331,7 @@ footer p{
 .orders-section table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 650px;
+    min-width: 750px;
 }
 
 .orders-section th {
@@ -1363,6 +1365,25 @@ footer p{
 }
 
 
+/* ================= DELETE BUTTON ================= */
+
+.delete-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #8b3a3a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #5f2525;
+    transform: scale(1.05);
+}
+
+
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
@@ -1379,9 +1400,12 @@ footer p{
         grid-template-columns: 1fr;
     }
 
+    .dashboard-card {
+        padding: 25px;
+    }
+
     .orders-section {
         padding: 20px;
     }
 
 }
-  
