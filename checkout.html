@@ -4,459 +4,680 @@
 
 <head>
 
-```
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Checkout - TRIA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
-```
+    <title>Checkout - TRIA</title>
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-```
-<!-- ================= HEADER ================= -->
+    <!-- ================= HEADER ================= -->
 
-<header>
+    <header>
 
-    <nav>
+        <nav>
 
-        <div class="logo-container">
+            <div class="logo-container">
 
-            <img src="images/logo.png" alt="TRIA Logo" class="logo">
+                <img src="images/logo.png"
+                     alt="TRIA Logo"
+                     class="logo">
 
-        </div>
+            </div>
 
-        <div class="menu-toggle" id="menuToggle">
-            ☰
-        </div>
+            <div class="menu-toggle"
+                 id="menuToggle">
 
-        <ul id="navLinks">
+                ☰
 
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="women.html">Women</a></li>
-            <li><a href="men.html">Men</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            </div>
 
-        </ul>
+            <ul id="navLinks">
 
-    </nav>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
 
-</header>
+                <li>
+                    <a href="shop.html">
+                        Shop
+                    </a>
+                </li>
 
+                <li>
+                    <a href="women.html">
+                        Women
+                    </a>
+                </li>
 
-<!-- ================= CHECKOUT ================= -->
+                <li>
+                    <a href="men.html">
+                        Men
+                    </a>
+                </li>
 
-<section class="checkout">
+                <li>
+                    <a href="cart.html">
+                        Cart
+                    </a>
+                </li>
 
-    <div class="checkout-container">
+            </ul>
 
-        <div class="checkout-header">
+        </nav>
 
-            <span>TRIA</span>
-
-            <h1>Complete Your Order</h1>
-
-            <p>
-                Enter your details and choose your preferred payment method.
-            </p>
-
-        </div>
-
-
-        <form id="checkoutForm">
-
-
-            <!-- CUSTOMER INFORMATION -->
-
-            <div class="checkout-section">
-
-                <h2>Customer Information</h2>
-
-                <div class="input-group">
-
-                    <label for="fullName">
-                        Full Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="fullName"
-                        placeholder="Enter your full name"
-                        required
-                    >
-
-                </div>
+    </header>
 
 
-                <div class="input-group">
+    <!-- ================= CHECKOUT ================= -->
 
-                    <label for="email">
-                        Email Address
-                    </label>
+    <section class="checkout">
 
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        required
-                    >
+        <div class="checkout-container">
 
-                </div>
+            <div class="checkout-header">
 
+                <span>TRIA</span>
 
-                <div class="input-group">
+                <h1>
+                    Complete Your Order
+                </h1>
 
-                    <label for="phone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="Enter your phone number"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="input-group">
-
-                    <label for="address">
-                        Full Address
-                    </label>
-
-                    <textarea
-                        id="address"
-                        placeholder="Enter your full address"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                </div>
+                <p>
+                    Enter your details and choose your preferred payment method.
+                </p>
 
             </div>
 
 
-            <!-- SHIPPING -->
-
-            <div class="checkout-section">
-
-                <h2>Shipping Information</h2>
-
-                <div class="input-group">
-
-                    <label for="governorate">
-                        Governorate
-                    </label>
-
-                    <select id="governorate" required>
-
-                        <option value="50">
-                            Cairo — 50 EGP
-                        </option>
-
-                        <option value="70">
-                            Giza — 70 EGP
-                        </option>
-
-                        <option value="80">
-                            Alexandria — 80 EGP
-                        </option>
-
-                        <option value="100">
-                            Other Governorates — 100 EGP
-                        </option>
-
-                    </select>
-
-                </div>
-
-            </div>
+            <form id="checkoutForm">
 
 
-            <!-- PAYMENT -->
+                <!-- CUSTOMER INFORMATION -->
 
-            <div class="checkout-section">
+                <div class="checkout-section">
 
-                <h2>Payment Method</h2>
+                    <h2>
+                        Customer Information
+                    </h2>
 
-                <div class="payment-options">
 
-                    <label class="payment-option">
+                    <div class="input-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
 
                         <input
-                            type="radio"
-                            name="payment"
-                            value="Visa"
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
                             required
                         >
 
-                        <span>
-                            💳 Visa
-                        </span>
-
-                    </label>
+                    </div>
 
 
-                    <label class="payment-option">
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
 
                         <input
-                            type="radio"
-                            name="payment"
-                            value="Cash"
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
                             required
                         >
 
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter your phone number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="address">
+                            Full Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            placeholder="Enter your full address"
+                            rows="4"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SHIPPING -->
+
+                <div class="checkout-section">
+
+                    <h2>
+                        Shipping Information
+                    </h2>
+
+
+                    <div class="input-group">
+
+                        <label for="governorate">
+                            Governorate
+                        </label>
+
+
+                        <select
+                            id="governorate"
+                            required
+                        >
+
+                            <option value="50">
+                                Cairo — 50 EGP
+                            </option>
+
+                            <option value="70">
+                                Giza — 70 EGP
+                            </option>
+
+                            <option value="80">
+                                Alexandria — 80 EGP
+                            </option>
+
+                            <option value="100">
+                                Other Governorates — 100 EGP
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="checkout-section">
+
+                    <h2>
+                        Payment Method
+                    </h2>
+
+
+                    <div class="payment-options">
+
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="Visa"
+                                required
+                            >
+
+                            <span>
+                                💳 Visa
+                            </span>
+
+                        </label>
+
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="Cash"
+                                required
+                            >
+
+                            <span>
+                                💵 Cash on Delivery
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ORDER SUMMARY -->
+
+                <div class="order-summary">
+
+                    <h2>
+                        Order Summary
+                    </h2>
+
+
+                    <div class="summary-row">
+
                         <span>
-                            💵 Cash on Delivery
+                            Subtotal
                         </span>
 
-                    </label>
+                        <strong id="subtotal">
+                            0 EGP
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <strong id="shipping">
+                            50 EGP
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="totalPrice">
+                            0 EGP
+                        </strong>
+
+                    </div>
 
                 </div>
 
-            </div>
 
+                <button
+                    type="submit"
+                    class="place-order-btn"
+                >
 
-            <!-- ORDER SUMMARY -->
+                    Place Order
 
-            <div class="order-summary">
+                </button>
 
-                <h2>Order Summary</h2>
 
-                <div class="summary-row">
+            </form>
 
-                    <span>Subtotal</span>
+        </div>
 
-                    <strong id="subtotal">
-                        0 EGP
-                    </strong>
+    </section>
 
-                </div>
 
+    <!-- ================= SUPABASE ================= -->
 
-                <div class="summary-row">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-                    <span>Shipping</span>
 
-                    <strong id="shipping">
-                        50 EGP
-                    </strong>
+    <!-- ================= CHECKOUT SCRIPT ================= -->
 
-                </div>
+    <script>
 
 
-                <div class="summary-total">
+        // ================= SUPABASE CONNECTION =================
 
-                    <span>Total</span>
 
-                    <strong id="totalPrice">
-                        0 EGP
-                    </strong>
+        const SUPABASE_URL =
+    "https://qguofdaattdrbwbgtwuw.supabase.co";
 
-                </div>
 
-            </div>
+        const SUPABASE_KEY =
+            sb_publishable_8n45f-xVky4i3zyJFrxk3A_PjhJLvzu
 
 
-            <button
-                type="submit"
-                class="place-order-btn"
-            >
+        const supabaseClient =
+            supabase.createClient(
 
-                Place Order
+                SUPABASE_URL,
 
-            </button>
+                SUPABASE_KEY
 
+            );
 
-        </form>
 
-    </div>
+        // ================= ELEMENTS =================
 
-</section>
 
+        const governorate =
+            document.getElementById(
+                "governorate"
+            );
 
-<!-- ================= CHECKOUT SCRIPT ================= -->
 
-<script>
+        const shipping =
+            document.getElementById(
+                "shipping"
+            );
 
-    const governorate =
-        document.getElementById("governorate");
 
-    const shipping =
-        document.getElementById("shipping");
+        const subtotal =
+            document.getElementById(
+                "subtotal"
+            );
 
-    const subtotal =
-        document.getElementById("subtotal");
 
-    const totalPrice =
-        document.getElementById("totalPrice");
+        const totalPrice =
+            document.getElementById(
+                "totalPrice"
+            );
 
-    const checkoutForm =
-        document.getElementById("checkoutForm");
 
+        const checkoutForm =
+            document.getElementById(
+                "checkoutForm"
+            );
 
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
 
+        // ================= CART =================
 
-    let productsTotal = 0;
 
-
-    cart.forEach(product => {
-
-        productsTotal += Number(product.price);
-
-    });
-
-
-    subtotal.innerHTML =
-        productsTotal + " EGP";
-
-
-    function updateTotal() {
-
-        let shippingCost =
-            Number(governorate.value);
-
-
-        shipping.innerHTML =
-            shippingCost + " EGP";
-
-
-        totalPrice.innerHTML =
-            (productsTotal + shippingCost) + " EGP";
-
-    }
-
-
-    updateTotal();
-
-
-    governorate.addEventListener(
-        "change",
-        updateTotal
-    );
-
-
-    checkoutForm.addEventListener(
-    "submit",
-    function (e) {
-
-        e.preventDefault();
-
-
-        // Get selected payment method
-        const payment =
-            document.querySelector(
-                'input[name="payment"]:checked'
-            ).value;
-
-
-        // Get selected governorate name
-        const governorateName =
-            governorate.options[
-                governorate.selectedIndex
-            ].text;
-
-
-        // Create new order
-        const newOrder = {
-
-            name:
-                document.getElementById(
-                    "fullName"
-                ).value,
-
-            email:
-                document.getElementById(
-                    "email"
-                ).value,
-
-            phone:
-                document.getElementById(
-                    "phone"
-                ).value,
-
-            address:
-                document.getElementById(
-                    "address"
-                ).value,
-
-            governorate:
-                governorateName,
-
-            payment:
-                payment,
-
-            products:
-                cart,
-
-            subtotal:
-                productsTotal,
-
-            shipping:
-                Number(governorate.value),
-
-            total:
-                productsTotal +
-                Number(governorate.value),
-
-            status:
-                "Pending",
-
-            date:
-                new Date().toLocaleString()
-
-        };
-
-
-        // Get old orders
-        let orders =
+        let cart =
             JSON.parse(
                 localStorage.getItem(
-                    "orders"
+                    "cart"
                 )
             ) || [];
 
 
-        // Add new order
-        orders.push(newOrder);
+        let productsTotal = 0;
 
 
-        // Save orders
-        localStorage.setItem(
-            "orders",
-            JSON.stringify(
-                orders
-            )
+        cart.forEach(
+
+            product => {
+
+                productsTotal +=
+                    Number(
+                        product.price
+                    );
+
+            }
+
         );
 
 
-        // Clear cart
-        localStorage.removeItem(
-            "cart"
+        subtotal.innerHTML =
+            productsTotal +
+            " EGP";
+
+
+        // ================= UPDATE TOTAL =================
+
+
+        function updateTotal() {
+
+
+            let shippingCost =
+                Number(
+                    governorate.value
+                );
+
+
+            shipping.innerHTML =
+                shippingCost +
+                " EGP";
+
+
+            totalPrice.innerHTML =
+
+                (
+
+                    productsTotal +
+
+                    shippingCost
+
+                ) +
+
+                " EGP";
+
+
+        }
+
+
+        updateTotal();
+
+
+        governorate.addEventListener(
+
+            "change",
+
+            updateTotal
+
         );
 
 
-        // Go to success page
-        window.location.href =
-            "success.html";
-
-    }
-);
-
-</script>
+        // ================= SUBMIT ORDER =================
 
 
-<script src="script.js"></script>
-```
+        checkoutForm.addEventListener(
+
+            "submit",
+
+            async function (e) {
+
+
+                e.preventDefault();
+
+
+                // Payment method
+
+                const payment =
+
+                    document.querySelector(
+
+                        'input[name="payment"]:checked'
+
+                    ).value;
+
+
+                // Governorate name
+
+                const governorateName =
+
+                    governorate.options[
+
+                        governorate.selectedIndex
+
+                    ].text;
+
+
+                // Create order object
+
+                const newOrder = {
+
+
+                    name:
+
+                        document.getElementById(
+
+                            "fullName"
+
+                        ).value,
+
+
+                    email:
+
+                        document.getElementById(
+
+                            "email"
+
+                        ).value,
+
+
+                    phone:
+
+                        document.getElementById(
+
+                            "phone"
+
+                        ).value,
+
+
+                    address:
+
+                        document.getElementById(
+
+                            "address"
+
+                        ).value,
+
+
+                    governorate:
+
+                        governorateName,
+
+
+                    payment:
+
+                        payment,
+
+
+                    products:
+
+                        cart,
+
+
+                    subtotal:
+
+                        productsTotal,
+
+
+                    shipping:
+
+                        Number(
+
+                            governorate.value
+
+                        ),
+
+
+                    total:
+
+                        productsTotal +
+
+                        Number(
+
+                            governorate.value
+
+                        ),
+
+
+                    status:
+
+                        "Pending",
+
+
+                    order_date:
+
+                        new Date()
+
+                            .toLocaleString()
+
+                };
+
+
+                // ================= SAVE TO SUPABASE =================
+
+
+                const {
+
+                    data,
+
+                    error
+
+                } =
+
+                    await supabaseClient
+
+                        .from("orders")
+
+                        .insert([
+
+                            newOrder
+
+                        ]);
+
+
+                // Check for error
+
+                if (error) {
+
+
+                    console.error(
+
+                        error
+
+                    );
+
+
+                    alert(
+
+                        "Something went wrong. Please try again."
+
+                    );
+
+
+                    return;
+
+                }
+
+
+                // Clear cart
+
+                localStorage.removeItem(
+
+                    "cart"
+
+                );
+
+
+                // Go to success page
+
+                window.location.href =
+
+                    "success.html";
+
+
+            }
+
+        );
+
+    </script>
+
+
+    <!-- ================= MAIN SCRIPT ================= -->
+
+    <script src="script.js"></script>
 
 </body>
 
