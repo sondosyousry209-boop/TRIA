@@ -666,24 +666,15 @@
 
                 if (error) {
 
+    console.error("SUPABASE ERROR:", error);
 
-                    console.error(
+    alert(
+        error.message
+    );
 
-                        error
+    return;
 
-                    );
-
-
-                    alert(
-
-                        "Something went wrong. Please try again."
-
-                    );
-
-
-                    return;
-
-                }
+}
 
 
                 // CLEAR CART
