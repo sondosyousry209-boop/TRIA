@@ -258,6 +258,46 @@
 </section>
 
 
+<!-- ================= ORDER DETAILS POPUP ================= -->
+
+
+<div id="orderModal"
+     class="order-modal">
+
+
+    <div class="order-modal-content">
+
+
+        <button
+            class="close-modal"
+            onclick="closeOrderModal()"
+        >
+
+            ×
+
+        </button>
+
+
+        <h2>
+
+            Order Details
+
+        </h2>
+
+
+        <div id="orderDetails">
+
+            <!-- Order details will appear here -->
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
 <!-- ================= SUPABASE LIBRARY ================= -->
 
 
@@ -408,7 +448,7 @@
         }
 
 
-        // TOTAL ORDERS
+        // ================= TOTAL ORDERS =================
 
 
         totalOrders.innerHTML =
@@ -416,7 +456,7 @@
             orders.length;
 
 
-        // PENDING ORDERS
+        // ================= PENDING ORDERS =================
 
 
         const pending =
@@ -437,7 +477,7 @@
             pending;
 
 
-        // TOTAL REVENUE
+        // ================= TOTAL REVENUE =================
 
 
         const revenue =
@@ -474,7 +514,7 @@
             " EGP";
 
 
-        // DISPLAY ORDERS
+        // ================= DISPLAY ORDERS =================
 
 
         ordersTable.innerHTML = "";
@@ -671,6 +711,19 @@
 
                         <button
 
+                            class="view-btn"
+
+                            onclick='viewOrderDetails(${JSON.stringify(order)})'
+
+                        >
+
+                            View Details
+
+                        </button>
+
+
+                        <button
+
                             class="delete-btn"
 
                             onclick="deleteOrder(
@@ -754,7 +807,7 @@
             );
 
 
-            alert(
+            showToast(
 
                 "Could not update order status."
 
@@ -766,7 +819,7 @@
         }
 
 
-        alert(
+        showToast(
 
             "Order status updated successfully!"
 
@@ -835,7 +888,7 @@
             );
 
 
-            alert(
+            showToast(
 
                 "Could not delete order."
 
@@ -847,7 +900,7 @@
         }
 
 
-        alert(
+        showToast(
 
             "Order deleted successfully!"
 
@@ -855,6 +908,224 @@
 
 
         loadOrders();
+
+    }
+
+
+    // ================= VIEW ORDER DETAILS =================
+
+
+    function viewOrderDetails(
+
+        order
+
+    ) {
+
+
+        const orderDetails =
+
+            document.getElementById(
+
+                "orderDetails"
+
+            );
+
+
+        orderDetails.innerHTML = `
+
+
+            <p>
+
+                <strong>
+
+                    Customer:
+
+                </strong>
+
+                ${order.name}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Email:
+
+                </strong>
+
+                ${order.email}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Phone:
+
+                </strong>
+
+                ${order.phone}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Address:
+
+                </strong>
+
+                ${order.address}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Governorate:
+
+                </strong>
+
+                ${order.governorate}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Payment Method:
+
+                </strong>
+
+                ${order.payment}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Products:
+
+                </strong>
+
+                ${order.products}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Subtotal:
+
+                </strong>
+
+                ${order.subtotal}
+
+                EGP
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Shipping:
+
+                </strong>
+
+                ${order.shipping}
+
+                EGP
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Total:
+
+                </strong>
+
+                ${order.total}
+
+                EGP
+
+            </p>
+
+
+            <p>
+
+                <strong>
+
+                    Order Date:
+
+                </strong>
+
+                ${order.order_date}
+
+            </p>
+
+
+        `;
+
+
+        document
+
+            .getElementById(
+
+                "orderModal"
+
+            )
+
+            .classList
+
+            .add(
+
+                "show"
+
+            );
+
+    }
+
+
+    // ================= CLOSE ORDER MODAL =================
+
+
+    function closeOrderModal() {
+
+
+        document
+
+            .getElementById(
+
+                "orderModal"
+
+            )
+
+            .classList
+
+            .remove(
+
+                "show"
+
+            );
 
     }
 
@@ -921,7 +1192,7 @@
 
 </script>
 ```
-
+<div id="toast"></div>
 </body>
 
 </html>
