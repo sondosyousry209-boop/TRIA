@@ -212,6 +212,13 @@
                         </th>
 
 
+                        <th>
+
+                            Action
+
+                        </th>
+
+
                     </tr>
 
 
@@ -471,6 +478,9 @@
                         </td>
 
 
+                        <!-- STATUS -->
+
+
                         <td>
 
 
@@ -610,6 +620,32 @@
                         </td>
 
 
+                        <!-- DELETE BUTTON -->
+
+
+                        <td>
+
+
+                            <button
+
+                                class="delete-btn"
+
+                                onclick="deleteOrder(
+
+                                    ${order.id}
+
+                                )"
+
+                            >
+
+                                Delete
+
+                            </button>
+
+
+                        </td>
+
+
                     `;
 
 
@@ -694,6 +730,95 @@
             alert(
 
                 "Order status updated successfully!"
+
+            );
+
+
+            loadOrders();
+
+
+        }
+
+
+        // ================= DELETE ORDER =================
+
+
+        async function deleteOrder(
+
+            orderId
+
+        ) {
+
+
+            const confirmDelete =
+
+                confirm(
+
+                    "Are you sure you want to delete this order?"
+
+                );
+
+
+            if (
+
+                !confirmDelete
+
+            ) {
+
+
+                return;
+
+            }
+
+
+            const {
+
+                error
+
+            } =
+
+                await supabaseClient
+
+                    .from("orders")
+
+                    .delete()
+
+                    .eq(
+
+                        "id",
+
+                        orderId
+
+                    );
+
+
+            if (error) {
+
+
+                console.error(
+
+                    "DELETE ERROR:",
+
+                    error
+
+                );
+
+
+                alert(
+
+                    "Could not delete order."
+
+                );
+
+
+                return;
+
+            }
+
+
+            alert(
+
+                "Order deleted successfully!"
 
             );
 
