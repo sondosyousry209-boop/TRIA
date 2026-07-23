@@ -1602,3 +1602,263 @@ footer p{
     }
 
 }
+/* ================= ADMIN LOGIN PAGE ================= */
+
+.admin-login {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px 20px;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            var(--dark),
+
+            var(--brown)
+
+        );
+
+}
+
+
+/* LOGIN CARD */
+
+.login-box {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 50px 45px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+
+        0 25px 60px rgba(0, 0, 0, 0.3);
+
+    animation: loginAppear 0.7s ease;
+
+}
+
+
+/* TRIA NAME */
+
+.login-box > span {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* TITLE */
+
+.login-box h1 {
+
+    color: var(--dark);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* DESCRIPTION */
+
+.login-box > p {
+
+    color: #6B4D3C;
+
+    font-size: 14px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* FORM */
+
+#loginForm {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+/* INPUTS */
+
+#loginForm input {
+
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border: 1px solid #D8C3A5;
+
+    border-radius: 12px;
+
+    background: #FFFCF7;
+
+    color: var(--dark);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+
+}
+
+
+#loginForm input::placeholder {
+
+    color: #9B8170;
+
+}
+
+
+#loginForm input:focus {
+
+    border-color: var(--gold);
+
+    box-shadow:
+
+        0 0 0 4px rgba(200, 154, 71, 0.15);
+
+}
+
+
+/* LOGIN BUTTON */
+
+#loginForm button {
+
+    margin-top: 8px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: var(--gold);
+
+    color: var(--white);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+
+#loginForm button:hover {
+
+    background: var(--dark);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+
+        0 8px 20px rgba(43, 29, 22, 0.25);
+
+}
+
+
+/* ERROR MESSAGE */
+
+.error-message {
+
+    min-height: 20px;
+
+    margin-top: 20px !important;
+
+    margin-bottom: 0 !important;
+
+    color: #8F3D3D !important;
+
+    font-size: 13px !important;
+
+}
+
+
+/* ANIMATION */
+
+@keyframes loginAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .login-box {
+
+        padding: 40px 25px;
+
+    }
+
+    .login-box h1 {
+
+        font-size: 36px;
+
+    }
+
+}
