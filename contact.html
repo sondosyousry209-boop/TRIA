@@ -1,43 +1,634 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Contact - TRIA</title>
 
-    <link rel="stylesheet" href="style.css">
+
+    <!-- ================= CSS ================= -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <style>
+
+        /* ================= CONTACT PAGE ================= */
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            padding: 40px 20px;
+
+        }
+
+
+        h1 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        h2 {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        #contactForm {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+        }
+
+
+        #contactForm input,
+
+        #contactForm textarea {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            box-sizing: border-box;
+
+        }
+
+
+        #contactForm textarea {
+
+            resize: vertical;
+
+            min-height: 150px;
+
+        }
+
+
+        #contactForm button {
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+        }
+
+
+        #contactForm button:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* ================= TOAST ================= */
+
+        .contact-toast {
+
+            position: fixed;
+
+            top: 25px;
+
+            right: 25px;
+
+            min-width: 280px;
+
+            max-width: 400px;
+
+            padding: 16px 20px;
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-size: 14px;
+
+            z-index: 9999;
+
+            transform: translateX(450px);
+
+            transition: 0.4s ease;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+        }
+
+
+        .contact-toast.show {
+
+            transform: translateX(0);
+
+        }
+
+
+        .contact-toast.success {
+
+            background: #3b2a22;
+
+        }
+
+
+        .contact-toast.error {
+
+            background: #8b2e2e;
+
+        }
+
+
+        @media (max-width: 600px) {
+
+
+            .contact-toast {
+
+                left: 20px;
+
+                right: 20px;
+
+                min-width: auto;
+
+                transform: translateY(-150px);
+
+            }
+
+
+            .contact-toast.show {
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<h1>TRIA</h1>
 
-<h2>Contact Us</h2>
-
-<form id="contactForm">
-
-    <input type="text" placeholder="Name">
-
-    <input type="email" placeholder="Email">
-
-    <textarea placeholder="Message"></textarea>
-
-    <button type="submit">Send</button>
-
-</form>
+    <!-- ================= TITLE ================= -->
 
 
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(event){
+    <h1>
 
-    event.preventDefault();
+        TRIA
 
-    showToast("✅ Your message has been sent successfully!");
+    </h1>
 
-});
-</script>
 
-<script src="script.js"></script>
+    <h2>
+
+        Contact Us
+
+    </h2>
+
+
+    <!-- ================= CONTACT FORM ================= -->
+
+
+    <form id="contactForm">
+
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Name"
+            required
+        >
+
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+        >
+
+
+        <textarea
+            id="message"
+            placeholder="Message"
+            required
+        ></textarea>
+
+
+        <button
+            type="submit"
+            id="sendButton"
+        >
+
+            Send
+
+        </button>
+
+
+    </form>
+
+
+    <!-- ================= SUPABASE LIBRARY ================= -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- ================= CONTACT SCRIPT ================= -->
+
+
+    <script>
+
+
+        // ================= SUPABASE CONNECTION =================
+
+
+        const SUPABASE_URL =
+
+            "https://qguofdaattdrbwbgtwuw.supabase.co";
+
+
+        const SUPABASE_KEY =
+
+            "sb_publishable_8n45f-xVky4i3zyJFrxk3A_PjhJLvzu";
+
+
+        const supabaseClient =
+
+            supabase.createClient(
+
+                SUPABASE_URL,
+
+                SUPABASE_KEY
+
+            );
+
+
+        // ================= TOAST FUNCTION =================
+
+
+        function showContactToast(
+
+            message,
+
+            type
+
+        ) {
+
+
+            const oldToast =
+
+                document.querySelector(
+
+                    ".contact-toast"
+
+                );
+
+
+            if (oldToast) {
+
+                oldToast.remove();
+
+            }
+
+
+            const toast =
+
+                document.createElement(
+
+                    "div"
+
+                );
+
+
+            toast.className =
+
+                "contact-toast " +
+
+                type;
+
+
+            toast.textContent =
+
+                message;
+
+
+            document.body.appendChild(
+
+                toast
+
+            );
+
+
+            setTimeout(
+
+                function() {
+
+
+                    toast.classList.add(
+
+                        "show"
+
+                    );
+
+
+                },
+
+                100
+
+            );
+
+
+            setTimeout(
+
+                function() {
+
+
+                    toast.classList.remove(
+
+                        "show"
+
+                    );
+
+
+                    setTimeout(
+
+                        function() {
+
+
+                            toast.remove();
+
+
+                        },
+
+                        400
+
+                    );
+
+
+                },
+
+                3500
+
+            );
+
+        }
+
+
+        // ================= CONTACT FORM =================
+
+
+        const contactForm =
+
+            document.getElementById(
+
+                "contactForm"
+
+            );
+
+
+        const sendButton =
+
+            document.getElementById(
+
+                "sendButton"
+
+            );
+
+
+        contactForm.addEventListener(
+
+            "submit",
+
+            async function(event) {
+
+
+                event.preventDefault();
+
+
+                // Get values
+
+
+                const name =
+
+                    document
+
+                        .getElementById(
+
+                            "name"
+
+                        )
+
+                        .value
+
+                        .trim();
+
+
+                const email =
+
+                    document
+
+                        .getElementById(
+
+                            "email"
+
+                        )
+
+                        .value
+
+                        .trim();
+
+
+                const message =
+
+                    document
+
+                        .getElementById(
+
+                            "message"
+
+                        )
+
+                        .value
+
+                        .trim();
+
+
+                // Disable button
+
+
+                sendButton.disabled =
+
+                    true;
+
+
+                sendButton.textContent =
+
+                    "Sending...";
+
+
+                // Insert message into Supabase
+
+
+                const {
+
+                    data,
+
+                    error
+
+                } = await supabaseClient
+
+                    .from(
+
+                        "messages"
+
+                    )
+
+                    .insert({
+
+                        name:
+
+                            name,
+
+                        email:
+
+                            email,
+
+                        message:
+
+                            message
+
+                    })
+
+                    .select();
+
+
+                // If error
+
+
+                if (error) {
+
+
+                    console.error(
+
+                        "SUPABASE ERROR:",
+
+                        error
+
+                    );
+
+
+                    showContactToast(
+
+                        "❌ Message could not be sent.",
+
+                        "error"
+
+                    );
+
+
+                    sendButton.disabled =
+
+                        false;
+
+
+                    sendButton.textContent =
+
+                        "Send";
+
+
+                    return;
+
+                }
+
+
+                // Success
+
+
+                showContactToast(
+
+                    "✅ Your message has been sent successfully!",
+
+                    "success"
+
+                );
+
+
+                // Clear form
+
+
+                contactForm.reset();
+
+
+                // Enable button again
+
+
+                sendButton.disabled =
+
+                    false;
+
+
+                sendButton.textContent =
+
+                    "Send";
+
+
+            }
+
+        );
+
+    </script>
+
+
+    <!-- ================= MAIN SCRIPT ================= -->
+
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>
