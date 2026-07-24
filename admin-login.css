@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin-login {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: #2B1D16;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    padding: 55px 45px;
+    background: #F8F2E8;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .4);
+}
+
+.login-box > span {
+    display: block;
+    color: #C89A47;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+}
+
+.login-box h1 {
+    color: #2B1D16;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.login-box > p {
+    color: #6B4D3C;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#loginForm input {
+    width: 100%;
+    padding: 17px;
+    border: 1px solid #D8C3A5;
+    border-radius: 12px;
+    background: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+#loginForm input:focus {
+    border-color: #C89A47;
+    box-shadow: 0 0 0 4px rgba(200, 154, 71, .15);
+}
+
+#loginForm button {
+    padding: 17px;
+    border: none;
+    border-radius: 30px;
+    background: #C89A47;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#loginForm button:hover {
+    background: #2B1D16;
+}
+
+.error-message {
+    color: #8F3D3D !important;
+    margin-top: 20px !important;
+}
+
+@media (max-width: 768px) {
+    .login-box {
+        padding: 40px 25px;
+    }
+
+    .login-box h1 {
+        font-size: 38px;
+    }
+}
