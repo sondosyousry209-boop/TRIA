@@ -4,21 +4,78 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>TRIA</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- ================= GOOGLE FONTS ================= -->
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ================= CSS ================= -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <!-- ================= CONTACT MESSAGE STYLE ================= -->
+
+    <style>
+
+        #contactSuccess {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px 20px;
+
+            background: #3b2a22;
+
+            color: white;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+        }
+
+
+        #contactSuccess.show {
+
+            display: block;
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
-    
+
 
     <!-- ================= HEADER ================= -->
 
@@ -26,127 +83,334 @@
 
         <nav>
 
-    <div class="logo-container">
-        <img src="images/logo.png" alt="TRIA Logo" class="logo">
-    </div>
 
-    <div class="menu-toggle" id="menuToggle">
-        ☰
-    </div>
+            <div class="logo-container">
 
-    <ul id="navLinks">
+                <img
+                    src="images/logo.png"
+                    alt="TRIA Logo"
+                    class="logo"
+                >
 
-        <li><a href="#">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="women.html">Women</a></li>
-        <li><a href="men.html">Men</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="cart.html">Cart</a></li>
+            </div>
 
-    </ul>
 
-</nav>
+            <div
+                class="menu-toggle"
+                id="menuToggle"
+            >
+
+                ☰
+
+            </div>
+
+
+            <ul id="navLinks">
+
+
+                <li>
+
+                    <a href="#">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="shop.html">
+
+                        Shop
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="women.html">
+
+                        Women
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="men.html">
+
+                        Men
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#about">
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="cart.html">
+
+                        Cart
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+
+        </nav>
 
     </header>
+
 
     <!-- ================= HERO ================= -->
 
     <section class="hero">
 
+
         <div class="hero-text">
 
-            <span>NEW COLLECTION 2026</span>
+
+            <span>
+
+                NEW COLLECTION 2026
+
+            </span>
+
 
             <h1>
-                TIMELESS <br>
+
+                TIMELESS
+
+                <br>
+
                 FASHION
+
             </h1>
 
+
             <p>
+
                 Discover premium fashion pieces designed with
                 elegance, confidence and comfort for every day.
+
             </p>
 
-            <a href="shop.html" class="shop-btn">
+
+            <a
+                href="shop.html"
+                class="shop-btn"
+            >
+
                 SHOP NOW
+
             </a>
 
+
         </div>
+
 
         <div class="hero-image">
 
-            <img src="images/hero.jpg" alt="Fashion Model">
+
+            <img
+                src="images/hero.jpg"
+                alt="Fashion Model"
+            >
+
 
         </div>
 
+
     </section>
+
 
     <!-- ================= COLLECTION ================= -->
 
     <section class="collection">
 
-        <h2>OUR COLLECTION</h2>
+
+        <h2>
+
+            OUR COLLECTION
+
+        </h2>
+
 
         <p>
+
             Explore our latest premium fashion collection.
+
         </p>
+
 
         <div class="collection-container">
 
-                        <div class="card">
 
-                <img src="images/tshirt1.jpg" alt="T-Shirt">
+            <div class="card">
 
-                <h3>Classic T-Shirt</h3>
 
-                <p>499 EGP</p>
+                <img
+                    src="images/tshirt1.jpg"
+                    alt="T-Shirt"
+                >
+
+
+                <h3>
+
+                    Classic T-Shirt
+
+                </h3>
+
+
+                <p>
+
+                    499 EGP
+
+                </p>
+
 
                 <a href="product1.html">
-                    <button>Details</button>
+
+                    <button>
+
+                        Details
+
+                    </button>
+
                 </a>
+
 
             </div>
 
+
             <div class="card">
 
-                <img src="images/tshirt2.jpg" alt="T-Shirt">
 
-                <h3>Oversized Tee</h3>
+                <img
+                    src="images/tshirt2.jpg"
+                    alt="T-Shirt"
+                >
 
-                <p>549 EGP</p>
+
+                <h3>
+
+                    Oversized Tee
+
+                </h3>
+
+
+                <p>
+
+                    549 EGP
+
+                </p>
+
 
                 <a href="product2.html">
-                    <button>Details</button>
+
+                    <button>
+
+                        Details
+
+                    </button>
+
                 </a>
 
+
             </div>
+
 
             <div class="card">
 
-                <img src="images/tshirt3.jpg" alt="T-Shirt">
 
-                <h3>Essential Tee</h3>
+                <img
+                    src="images/tshirt3.jpg"
+                    alt="T-Shirt"
+                >
 
-                <p>599 EGP</p>
+
+                <h3>
+
+                    Essential Tee
+
+                </h3>
+
+
+                <p>
+
+                    599 EGP
+
+                </p>
+
 
                 <a href="product3.html">
-                    <button>Details</button>
+
+                    <button>
+
+                        Details
+
+                    </button>
+
                 </a>
 
+
             </div>
+
 
         </div>
 
+
     </section>
+
 
     <!-- ================= ABOUT ================= -->
 
-    <section class="about" id="about">
+    <section
+        class="about"
+        id="about"
+    >
+
 
         <div class="about-content">
 
-            <h2>ABOUT TRIA</h2>
+
+            <h2>
+
+                ABOUT TRIA
+
+            </h2>
+
 
             <p>
 
@@ -157,73 +421,383 @@
 
             </p>
 
+
         </div>
 
+
     </section>
-    <section class="contact" id="contact">
 
-    <h2>Contact Us</h2>
 
-    <p>We'd love to hear from you.</p>
+    <!-- ================= CONTACT ================= -->
 
-    <form id="contactForm">
+    <section
+        class="contact"
+        id="contact"
+    >
 
-    <input type="text" placeholder="Your Name" required>
 
-    <input type="email" placeholder="Your Email" required>
+        <h2>
 
-    <textarea placeholder="Your Message" rows="6" required></textarea>
+            Contact Us
 
-    <button type="submit">Send Message</button>
+        </h2>
 
-</form>
 
-</section>
+        <p>
+
+            We'd love to hear from you.
+
+        </p>
+
+
+        <form id="contactForm">
+
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required
+            >
+
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required
+            >
+
+
+            <textarea
+                id="message"
+                placeholder="Your Message"
+                rows="6"
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+            >
+
+                Send Message
+
+            </button>
+
+
+        </form>
+
+
+        <div id="contactSuccess">
+
+            Message status will appear here.
+
+        </div>
+
+
+    </section>
+
 
     <!-- ================= FOOTER ================= -->
 
-    <footer id="contact">
+    <footer>
 
-        <h2>TRIA</h2>
 
-        <p>Fashion that never goes out of style.</p>
+        <h2>
 
-        <p>Email : info@tria.com</p>
+            TRIA
 
-        <p>Phone : +20 100 123 4567</p>
+        </h2>
 
-<div class="social-icons">
 
-    <a href="#">📷 Instagram</a>
+        <p>
 
-    <a href="#">📘 Facebook</a>
+            Fashion that never goes out of style.
 
-    <a href="#">🎵 TikTok</a>
+        </p>
 
-</div>
+
+        <p>
+
+            Email : info@tria.com
+
+        </p>
+
+
+        <p>
+
+            Phone : +20 100 123 4567
+
+        </p>
+
+
+        <div class="social-icons">
+
+
+            <a href="#">
+
+                📷 Instagram
+
+            </a>
+
+
+            <a href="#">
+
+                📘 Facebook
+
+            </a>
+
+
+            <a href="#">
+
+                🎵 TikTok
+
+            </a>
+
+
+        </div>
+
+
         <p class="copy">
 
             © 2026 TRIA. All Rights Reserved.
 
         </p>
 
+
     </footer>
 
-<button id="topBtn">↑</button>
 
-<script src="script.js"></script>
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
+    <!-- ================= TOP BUTTON ================= -->
 
-    e.preventDefault();
+    <button
+        id="topBtn"
+    >
 
-    showToast("✅ Your message has been sent successfully!");
+        ↑
 
-    this.reset();
+    </button>
 
-});
-</script>
-<div id="toast"></div>
+
+    <!-- ================= SUPABASE LIBRARY ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- ================= MAIN SCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+
+    <!-- ================= CONTACT SCRIPT ================= -->
+
+    <script>
+
+
+        const SUPABASE_URL =
+
+            "https://qguofdaattdrbwbgtwuw.supabase.co";
+
+
+        const SUPABASE_KEY =
+
+            "sb_publishable_8n45f-xVky4i3zyJFrxk3A_PjhJLvzu";
+
+
+        const supabaseClient =
+
+            supabase.createClient(
+
+                SUPABASE_URL,
+
+                SUPABASE_KEY
+
+            );
+
+
+        document
+
+            .getElementById("contactForm")
+
+            .addEventListener(
+
+                "submit",
+
+                async function(event) {
+
+
+                    event.preventDefault();
+
+
+                    const name =
+
+                        document
+
+                            .getElementById("name")
+
+                            .value
+
+                            .trim();
+
+
+                    const email =
+
+                        document
+
+                            .getElementById("email")
+
+                            .value
+
+                            .trim();
+
+
+                    const message =
+
+                        document
+
+                            .getElementById("message")
+
+                            .value
+
+                            .trim();
+
+
+                    const successMessage =
+
+                        document
+
+                            .getElementById(
+
+                                "contactSuccess"
+
+                            );
+
+
+                    const {
+
+                        error
+
+                    } =
+
+                        await supabaseClient
+
+                            .from("messages")
+
+                            .insert({
+
+                                name:
+
+                                    name,
+
+                                email:
+
+                                    email,
+
+                                message:
+
+                                    message
+
+                            });
+
+
+                    if (error) {
+
+
+                        console.error(
+
+                            "SUPABASE ERROR:",
+
+                            error
+
+                        );
+
+
+                        successMessage
+
+                            .textContent =
+
+                            "❌ Error: " +
+
+                            error.message;
+
+
+                        successMessage
+
+                            .classList
+
+                            .add(
+
+                                "show"
+
+                            );
+
+
+                        return;
+
+                    }
+
+
+                    successMessage
+
+                        .textContent =
+
+                        "✅ Your message has been sent successfully!";
+
+
+                    successMessage
+
+                        .classList
+
+                        .add(
+
+                            "show"
+
+                        );
+
+
+                    document
+
+                        .getElementById(
+
+                            "contactForm"
+
+                        )
+
+                        .reset();
+
+
+                    setTimeout(
+
+                        function() {
+
+
+                            successMessage
+
+                                .classList
+
+                                .remove(
+
+                                    "show"
+
+                                );
+
+
+                        },
+
+                        3500
+
+                    );
+
+
+                }
+
+            );
+
+
+    </script>
+
+
 </body>
 
 </html>
