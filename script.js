@@ -40,7 +40,11 @@ document
                 );
 
 
-               showToast("✅ Product added to cart!");
+                showToast(
+
+                    "✅ Product added to cart!"
+
+                );
 
             }
 
@@ -142,8 +146,11 @@ if (searchInput) {
                 let title =
 
                     card
+
                         .querySelector("h3")
+
                         .textContent
+
                         .toLowerCase();
 
 
@@ -169,43 +176,6 @@ if (searchInput) {
                 }
 
             });
-
-        }
-
-    );
-
-}
-
-
-// ================= CONTACT FORM =================
-
-const contactForm =
-
-    document.getElementById(
-
-        "contactForm"
-
-    );
-
-
-if (contactForm) {
-
-
-    contactForm.addEventListener(
-
-        "submit",
-
-        function(e) {
-
-
-            e.preventDefault();
-
-
-           
-showToast(
-    "✅ Your message has been sent successfully!"
-);
-            contactForm.reset();
 
         }
 
@@ -390,50 +360,116 @@ if (
     );
 
 }
+
+
 // ================= TRIA TOAST NOTIFICATION =================
 
 function showToast(message) {
 
-    const toast = document.createElement("div");
 
-    toast.className = "tria-toast";
+    const toast =
+
+        document.createElement(
+
+            "div"
+
+        );
+
+
+    toast.className =
+
+        "tria-toast";
+
 
     toast.innerHTML = `
 
         <div class="toast-icon">
+
             ✓
+
         </div>
+
 
         <div class="toast-content">
 
-            <strong>TRIA</strong>
+            <strong>
 
-            <span>${message}</span>
+                TRIA
+
+            </strong>
+
+
+            <span>
+
+                ${message}
+
+            </span>
 
         </div>
 
-        <div class="toast-progress"></div>
+
+        <div class="toast-progress">
+
+        </div>
 
     `;
 
-    document.body.appendChild(toast);
 
-    setTimeout(function() {
+    document.body.appendChild(
 
-        toast.classList.add("show");
+        toast
 
-    }, 100);
+    );
 
-    setTimeout(function() {
 
-        toast.classList.remove("show");
+    setTimeout(
 
-        setTimeout(function() {
+        function() {
 
-            toast.remove();
 
-        }, 500);
+            toast.classList.add(
 
-    }, 3500);
+                "show"
+
+            );
+
+        },
+
+        100
+
+    );
+
+
+    setTimeout(
+
+        function() {
+
+
+            toast.classList.remove(
+
+                "show"
+
+            );
+
+
+            setTimeout(
+
+                function() {
+
+
+                    toast.remove();
+
+
+                },
+
+                500
+
+            );
+
+        },
+
+        3500
+
+    );
 
 }
