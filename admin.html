@@ -4,166 +4,365 @@
 
 <head>
 
-```
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>TRIA Admin Dashboard</title>
+    <title>TRIA Admin Dashboard</title>
 
-<link rel="stylesheet"
-      href="style.css">
-```
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
+
 <body>
 
-```
-<!-- ================= HEADER ================= -->
 
-<header>
+    <!-- ================= HEADER ================= -->
 
-    <nav>
+    <header>
+
+        <nav>
 
 
-        <div class="logo-container">
+            <div class="logo-container">
 
-            <img
-                src="images/logo.png"
-                alt="TRIA Logo"
-                class="logo"
+                <img
+                    src="images/logo.png"
+                    alt="TRIA Logo"
+                    class="logo"
+                >
+
+            </div>
+
+
+            <ul>
+
+
+                <li>
+
+                    <a href="index.html">
+
+                        Back to Website
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <button id="logoutBtn">
+
+                        Logout
+
+                    </button>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= ADMIN DASHBOARD ================= -->
+
+    <section class="admin-dashboard">
+
+
+        <!-- ================= DASHBOARD HEADER ================= -->
+
+        <div class="dashboard-header">
+
+
+            <span>
+
+                TRIA
+
+            </span>
+
+
+            <h1>
+
+                Admin Dashboard
+
+            </h1>
+
+
+            <p>
+
+                Manage your orders and track your business.
+
+            </p>
+
+
+        </div>
+
+
+        <!-- ================= DASHBOARD CARDS ================= -->
+
+        <div class="dashboard-cards">
+
+
+            <div class="dashboard-card">
+
+
+                <h3>
+
+                    Total Orders
+
+                </h3>
+
+
+                <strong id="totalOrders">
+
+                    0
+
+                </strong>
+
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+
+                <h3>
+
+                    Pending Orders
+
+                </h3>
+
+
+                <strong id="pendingOrders">
+
+                    0
+
+                </strong>
+
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+
+                <h3>
+
+                    Total Revenue
+
+                </h3>
+
+
+                <strong id="totalRevenue">
+
+                    0 EGP
+
+                </strong>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================= ORDERS ================= -->
+
+        <div class="orders-section">
+
+
+            <h2>
+
+                Recent Orders
+
+            </h2>
+
+
+            <table>
+
+
+                <thead>
+
+
+                    <tr>
+
+
+                        <th>
+
+                            Customer
+
+                        </th>
+
+
+                        <th>
+
+                            Phone
+
+                        </th>
+
+
+                        <th>
+
+                            Governorate
+
+                        </th>
+
+
+                        <th>
+
+                            Total
+
+                        </th>
+
+
+                        <th>
+
+                            Status
+
+                        </th>
+
+
+                        <th>
+
+                            Action
+
+                        </th>
+
+
+                    </tr>
+
+
+                </thead>
+
+
+                <tbody id="ordersTable">
+
+                    <!-- Orders appear here -->
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+        <!-- ================= CUSTOMER MESSAGES ================= -->
+
+        <div class="orders-section messages-section">
+
+
+            <h2>
+
+                Customer Messages
+
+            </h2>
+
+
+            <table>
+
+
+                <thead>
+
+
+                    <tr>
+
+
+                        <th>
+
+                            Name
+
+                        </th>
+
+
+                        <th>
+
+                            Email
+
+                        </th>
+
+
+                        <th>
+
+                            Message
+
+                        </th>
+
+
+                        <th>
+
+                            Action
+
+                        </th>
+
+
+                    </tr>
+
+
+                </thead>
+
+
+                <tbody id="messagesTable">
+
+                    <!-- Messages appear here -->
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= ORDER DETAILS POPUP ================= -->
+
+    <div
+        id="orderModal"
+        class="order-modal"
+    >
+
+
+        <div class="order-modal-content">
+
+
+            <button
+                class="close-modal"
+                onclick="closeOrderModal()"
             >
 
-        </div>
+                ×
 
+            </button>
 
-        <ul>
 
+            <h2>
 
-            <li>
+                Order Details
 
-                <a href="index.html">
+            </h2>
 
-                    Back to Website
 
-                </a>
+            <div id="orderDetails">
 
-            </li>
+                <!-- Order details appear here -->
 
-
-            <li>
-
-                <button id="logoutBtn">
-
-                    Logout
-
-                </button>
-
-            </li>
-
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-<!-- ================= ADMIN DASHBOARD ================= -->
-
-<section class="admin-dashboard">
-
-
-    <div class="dashboard-header">
-
-
-        <span>
-
-            TRIA
-
-        </span>
-
-
-        <h1>
-
-            Admin Dashboard
-
-        </h1>
-
-
-        <p>
-
-            Manage your orders and track your business.
-
-        </p>
-
-
-    </div>
-
-
-    <!-- ================= DASHBOARD CARDS ================= -->
-
-
-    <div class="dashboard-cards">
-
-
-        <div class="dashboard-card">
-
-
-            <h3>
-
-                Total Orders
-
-            </h3>
-
-
-            <strong id="totalOrders">
-
-                0
-
-            </strong>
-
-
-        </div>
-
-
-        <div class="dashboard-card">
-
-
-            <h3>
-
-                Pending Orders
-
-            </h3>
-
-
-            <strong id="pendingOrders">
-
-                0
-
-            </strong>
-
-
-        </div>
-
-
-        <div class="dashboard-card">
-
-
-            <h3>
-
-                Total Revenue
-
-            </h3>
-
-
-            <strong id="totalRevenue">
-
-                0 EGP
-
-            </strong>
+            </div>
 
 
         </div>
@@ -172,122 +371,40 @@
     </div>
 
 
-    <!-- ================= ORDERS ================= -->
+    <!-- ================= MESSAGE DETAILS POPUP ================= -->
 
+    <div
+        id="messageModal"
+        class="order-modal"
+    >
 
-    <div class="orders-section">
 
+        <div class="order-modal-content">
 
-        <h2>
 
-            Recent Orders
+            <button
+                class="close-modal"
+                onclick="closeMessageModal()"
+            >
 
-        </h2>
+                ×
 
+            </button>
 
-        <table>
 
+            <h2>
 
-            <thead>
+                Message Details
 
+            </h2>
 
-                <tr>
 
+            <div id="messageDetails">
 
-                    <th>
+                <!-- Message details appear here -->
 
-                        Customer
+            </div>
 
-                    </th>
-
-
-                    <th>
-
-                        Phone
-
-                    </th>
-
-
-                    <th>
-
-                        Governorate
-
-                    </th>
-
-
-                    <th>
-
-                        Total
-
-                    </th>
-
-
-                    <th>
-
-                        Status
-
-                    </th>
-
-
-                    <th>
-
-                        Action
-
-                    </th>
-
-
-                </tr>
-
-
-            </thead>
-
-
-            <tbody id="ordersTable">
-
-                <!-- Orders will appear here -->
-
-            </tbody>
-
-
-        </table>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- ================= ORDER DETAILS POPUP ================= -->
-
-
-<div id="orderModal"
-     class="order-modal">
-
-
-    <div class="order-modal-content">
-
-
-        <button
-            class="close-modal"
-            onclick="closeOrderModal()"
-        >
-
-            ×
-
-        </button>
-
-
-        <h2>
-
-            Order Details
-
-        </h2>
-
-
-        <div id="orderDetails">
-
-            <!-- Order details will appear here -->
 
         </div>
 
@@ -295,920 +412,1392 @@
     </div>
 
 
-</div>
+    <!-- ================= SUPABASE LIBRARY ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
-<!-- ================= SUPABASE LIBRARY ================= -->
+    <!-- ================= ADMIN SCRIPT ================= -->
+
+    <script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        // ================= SUPABASE CONNECTION =================
 
 
-<!-- ================= ADMIN SCRIPT ================= -->
+        const SUPABASE_URL =
+
+            "https://qguofdaattdrbwbgtwuw.supabase.co";
 
 
-<script>
+        const SUPABASE_KEY =
+
+            "sb_publishable_8n45f-xVky4i3zyJFrxk3A_PjhJLvzu";
 
 
-    // ================= SUPABASE CONNECTION =================
+        const supabaseClient =
+
+            supabase.createClient(
+
+                SUPABASE_URL,
+
+                SUPABASE_KEY
+
+            );
 
 
-    const SUPABASE_URL =
-
-        "https://qguofdaattdrbwbgtwuw.supabase.co";
+        // ================= CHECK ADMIN LOGIN =================
 
 
-    const SUPABASE_KEY =
-
-        "sb_publishable_8n45f-xVky4i3zyJFrxk3A_PjhJLvzu";
+        async function checkAdminLogin() {
 
 
-    const supabaseClient =
+            const {
 
-        supabase.createClient(
+                data: {
 
-            SUPABASE_URL,
+                    session
 
-            SUPABASE_KEY
+                }
 
-        );
+            } = await supabaseClient
 
+                .auth
 
-    // ================= CHECK ADMIN LOGIN =================
-
-
-    async function checkAdminLogin() {
+                .getSession();
 
 
-        const {
+            if (!session) {
 
-            data: {
 
-                session
+                window.location.href =
+
+                    "admin-login.html";
+
+
+                return false;
 
             }
 
-        } = await supabaseClient
 
-            .auth
-
-            .getSession();
-
-
-        if (!session) {
-
-
-            window.location.href =
-
-                "admin-login.html";
-
-
-            return false;
+            return true;
 
         }
 
 
-        return true;
-
-    }
+        // ================= ELEMENTS =================
 
 
-    // ================= ELEMENTS =================
+        const totalOrders =
+
+            document.getElementById(
+
+                "totalOrders"
+
+            );
 
 
-    const totalOrders =
+        const pendingOrders =
 
-        document.getElementById(
+            document.getElementById(
 
-            "totalOrders"
+                "pendingOrders"
 
-        );
-
-
-    const pendingOrders =
-
-        document.getElementById(
-
-            "pendingOrders"
-
-        );
+            );
 
 
-    const totalRevenue =
+        const totalRevenue =
 
-        document.getElementById(
+            document.getElementById(
 
-            "totalRevenue"
+                "totalRevenue"
 
-        );
-
-
-    const ordersTable =
-
-        document.getElementById(
-
-            "ordersTable"
-
-        );
+            );
 
 
-    // ================= LOAD ORDERS =================
+        const ordersTable =
+
+            document.getElementById(
+
+                "ordersTable"
+
+            );
 
 
-    async function loadOrders() {
+        const messagesTable =
+
+            document.getElementById(
+
+                "messagesTable"
+
+            );
 
 
-        const {
-
-            data: orders,
-
-            error
-
-        } = await supabaseClient
-
-            .from("orders")
-
-            .select("*");
+        // ================= LOAD ORDERS =================
 
 
-        if (error) {
+        async function loadOrders() {
 
 
-            console.error(
+            const {
 
-                "SUPABASE ERROR:",
+                data: orders,
 
                 error
 
-            );
+            } = await supabaseClient
+
+                .from("orders")
+
+                .select("*");
 
 
-            return;
-
-        }
+            if (error) {
 
 
-        // ================= TOTAL ORDERS =================
+                console.error(
+
+                    "ORDERS ERROR:",
+
+                    error
+
+                );
 
 
-        totalOrders.innerHTML =
+                return;
 
-            orders.length;
-
-
-        // ================= PENDING ORDERS =================
+            }
 
 
-        const pending =
+            totalOrders.innerHTML =
 
-            orders.filter(
-
-                order =>
-
-                    order.status ===
-
-                    "Pending"
-
-            ).length;
+                orders.length;
 
 
-        pendingOrders.innerHTML =
+            const pending =
 
-            pending;
+                orders.filter(
 
+                    order =>
 
-        // ================= TOTAL REVENUE =================
+                        order.status ===
 
+                        "Pending"
 
-        const revenue =
-
-            orders.reduce(
-
-                (
-
-                    total,
-
-                    order
-
-                ) =>
+                ).length;
 
 
-                    total +
+            pendingOrders.innerHTML =
 
-                    Number(
-
-                        order.total
-
-                    ),
+                pending;
 
 
-                0
+            const revenue =
 
-            );
+                orders.reduce(
 
+                    (
 
-        totalRevenue.innerHTML =
+                        total,
 
-            revenue +
+                        order
 
-            " EGP";
-
-
-        // ================= DISPLAY ORDERS =================
+                    ) =>
 
 
-        ordersTable.innerHTML = "";
+                        total +
+
+                        Number(
+
+                            order.total
+
+                        ),
 
 
-        orders.forEach(
+                    0
 
-            order => {
+                );
 
 
-                const row =
+            totalRevenue.innerHTML =
 
-                    document.createElement(
+                revenue +
 
-                        "tr"
+                " EGP";
+
+
+            ordersTable.innerHTML = "";
+
+
+            orders.forEach(
+
+                order => {
+
+
+                    const row =
+
+                        document.createElement(
+
+                            "tr"
+
+                        );
+
+
+                    row.innerHTML = `
+
+
+                        <td>
+
+                            ${order.name || ""}
+
+                        </td>
+
+
+                        <td>
+
+                            ${order.phone || ""}
+
+                        </td>
+
+
+                        <td>
+
+                            ${order.governorate || ""}
+
+                        </td>
+
+
+                        <td>
+
+                            ${order.total || 0}
+
+                            EGP
+
+                        </td>
+
+
+                        <td>
+
+
+                            <select
+
+                                class="status-select"
+
+                                onchange="updateOrderStatus(
+
+                                    ${order.id},
+
+                                    this.value
+
+                                )"
+
+                            >
+
+
+                                <option
+
+                                    value="Pending"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Pending"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Pending
+
+                                </option>
+
+
+                                <option
+
+                                    value="Processing"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Processing"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Processing
+
+                                </option>
+
+
+                                <option
+
+                                    value="Shipped"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Shipped"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Shipped
+
+                                </option>
+
+
+                                <option
+
+                                    value="Delivered"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Delivered"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Delivered
+
+                                </option>
+
+
+                                <option
+
+                                    value="Cancelled"
+
+                                    ${
+
+                                        order.status ===
+
+                                        "Cancelled"
+
+                                            ? "selected"
+
+                                            : ""
+
+                                    }
+
+                                >
+
+                                    Cancelled
+
+                                </option>
+
+
+                            </select>
+
+
+                        </td>
+
+
+                        <td>
+
+
+                            <button
+
+                                class="view-btn"
+
+                                onclick='viewOrderDetails(${JSON.stringify(order)})'
+
+                            >
+
+                                View Details
+
+                            </button>
+
+
+                            <button
+
+                                class="delete-btn"
+
+                                onclick="deleteOrder(
+
+                                    ${order.id}
+
+                                )"
+
+                            >
+
+                                Delete
+
+                            </button>
+
+
+                        </td>
+
+
+                    `;
+
+
+                    ordersTable.appendChild(
+
+                        row
 
                     );
 
 
-                row.innerHTML = `
+                }
 
+            );
 
-                    <td>
+        }
 
-                        ${order.name}
 
-                    </td>
+        // ================= LOAD CUSTOMER MESSAGES =================
 
 
-                    <td>
+        async function loadMessages() {
 
-                        ${order.phone}
 
-                    </td>
+            console.log(
 
+                "Loading messages..."
 
-                    <td>
+            );
 
-                        ${order.governorate}
 
-                    </td>
+            const table =
 
+                document.getElementById(
 
-                    <td>
+                    "messagesTable"
 
-                        ${order.total}
+                );
 
-                        EGP
 
-                    </td>
+            if (!table) {
 
 
-                    <td>
+                console.error(
 
+                    "messagesTable not found"
 
-                        <select
+                );
 
-                            class="status-select"
 
-                            onchange="updateOrderStatus(
+                return;
 
-                                ${order.id},
+            }
 
-                                this.value
 
-                            )"
+            const result =
 
-                        >
+                await supabaseClient
 
+                    .from("messages")
 
-                            <option
+                    .select("*");
 
-                                value="Pending"
 
-                                ${
+            console.log(
 
-                                    order.status ===
+                "MESSAGES RESULT:",
 
-                                    "Pending"
+                result
 
-                                        ? "selected"
+            );
 
-                                        : ""
 
-                                }
+            if (result.error) {
 
-                            >
 
-                                Pending
+                console.error(
 
-                            </option>
+                    "MESSAGES ERROR:",
 
+                    result.error
 
-                            <option
+                );
 
-                                value="Processing"
 
-                                ${
+                table.innerHTML = `
 
-                                    order.status ===
 
-                                    "Processing"
+                    <tr>
 
-                                        ? "selected"
 
-                                        : ""
+                        <td colspan="4">
 
-                                }
 
-                            >
+                            Error loading messages
 
-                                Processing
 
-                            </option>
+                        </td>
 
 
-                            <option
-
-                                value="Shipped"
-
-                                ${
-
-                                    order.status ===
-
-                                    "Shipped"
-
-                                        ? "selected"
-
-                                        : ""
-
-                                }
-
-                            >
-
-                                Shipped
-
-                            </option>
-
-
-                            <option
-
-                                value="Delivered"
-
-                                ${
-
-                                    order.status ===
-
-                                    "Delivered"
-
-                                        ? "selected"
-
-                                        : ""
-
-                                }
-
-                            >
-
-                                Delivered
-
-                            </option>
-
-
-                            <option
-
-                                value="Cancelled"
-
-                                ${
-
-                                    order.status ===
-
-                                    "Cancelled"
-
-                                        ? "selected"
-
-                                        : ""
-
-                                }
-
-                            >
-
-                                Cancelled
-
-                            </option>
-
-
-                        </select>
-
-
-                    </td>
-
-
-                    <td>
-
-
-                        <button
-
-                            class="view-btn"
-
-                            onclick='viewOrderDetails(${JSON.stringify(order)})'
-
-                        >
-
-                            View Details
-
-                        </button>
-
-
-                        <button
-
-                            class="delete-btn"
-
-                            onclick="deleteOrder(
-
-                                ${order.id}
-
-                            )"
-
-                        >
-
-                            Delete
-
-                        </button>
-
-
-                    </td>
+                    </tr>
 
 
                 `;
 
 
-                ordersTable.appendChild(
-
-                    row
-
-                );
+                return;
 
             }
 
-        );
 
-    }
+            const messages =
 
-
-    // ================= UPDATE ORDER STATUS =================
+                result.data;
 
 
-    async function updateOrderStatus(
+            console.log(
 
-        orderId,
+                "MESSAGES DATA:",
 
-        newStatus
-
-    ) {
-
-
-        const {
-
-            error
-
-        } = await supabaseClient
-
-            .from("orders")
-
-            .update({
-
-                status:
-
-                    newStatus
-
-            })
-
-            .eq(
-
-                "id",
-
-                orderId
+                messages
 
             );
 
 
-        if (error) {
+            table.innerHTML = "";
 
 
-            console.error(
+            if (
 
-                "UPDATE ERROR:",
+                !messages ||
+
+                messages.length === 0
+
+            ) {
+
+
+                table.innerHTML = `
+
+
+                    <tr>
+
+
+                        <td colspan="4">
+
+
+                            No messages found
+
+
+                        </td>
+
+
+                    </tr>
+
+
+                `;
+
+
+                return;
+
+            }
+
+
+            messages.forEach(
+
+                message => {
+
+
+                    const row =
+
+                        document.createElement(
+
+                            "tr"
+
+                        );
+
+
+                    row.innerHTML = `
+
+
+                        <td>
+
+                            ${message.name || ""}
+
+                        </td>
+
+
+                        <td>
+
+                            ${message.email || ""}
+
+                        </td>
+
+
+                        <td>
+
+                            ${message.message || ""}
+
+                        </td>
+
+
+                        <td>
+
+
+                            <button
+
+                                class="view-btn"
+
+                                onclick='viewMessageDetails(${JSON.stringify(message)})'
+
+                            >
+
+                                View Message
+
+                            </button>
+
+
+                            <button
+
+                                class="delete-btn"
+
+                                onclick="deleteMessage(
+
+                                    ${message.id}
+
+                                )"
+
+                            >
+
+                                Delete
+
+                            </button>
+
+
+                        </td>
+
+
+                    `;
+
+
+                    table.appendChild(
+
+                        row
+
+                    );
+
+
+                }
+
+            );
+
+        }
+
+
+        // ================= UPDATE ORDER STATUS =================
+
+
+        async function updateOrderStatus(
+
+            orderId,
+
+            newStatus
+
+        ) {
+
+
+            const {
 
                 error
 
-            );
+            } = await supabaseClient
+
+                .from("orders")
+
+                .update({
+
+                    status:
+
+                        newStatus
+
+                })
+
+                .eq(
+
+                    "id",
+
+                    orderId
+
+                );
+
+
+            if (error) {
+
+
+                console.error(
+
+                    "UPDATE ERROR:",
+
+                    error
+
+                );
+
+
+                showToast(
+
+                    "Could not update order status."
+
+                );
+
+
+                return;
+
+            }
 
 
             showToast(
 
-                "Could not update order status."
+                "Order status updated successfully!"
 
             );
-
-
-            return;
-
-        }
-
-
-        showToast(
-
-            "Order status updated successfully!"
-
-        );
-
-
-        loadOrders();
-
-    }
-
-
-    // ================= DELETE ORDER =================
-
-
-    async function deleteOrder(
-
-        orderId
-
-    ) {
-
-
-        const confirmDelete =
-
-            confirm(
-
-                "Are you sure you want to delete this order?"
-
-            );
-
-
-        if (!confirmDelete) {
-
-            return;
-
-        }
-
-
-        const {
-
-            error
-
-        } = await supabaseClient
-
-            .from("orders")
-
-            .delete()
-
-            .eq(
-
-                "id",
-
-                orderId
-
-            );
-
-
-        if (error) {
-
-
-            console.error(
-
-                "DELETE ERROR:",
-
-                error
-
-            );
-
-
-            showToast(
-
-                "Could not delete order."
-
-            );
-
-
-            return;
-
-        }
-
-
-        showToast(
-
-            "Order deleted successfully!"
-
-        );
-
-
-        loadOrders();
-
-    }
-
-
-    // ================= VIEW ORDER DETAILS =================
-
-
-    function viewOrderDetails(
-
-        order
-
-    ) {
-
-
-        const orderDetails =
-
-            document.getElementById(
-
-                "orderDetails"
-
-            );
-
-
-        orderDetails.innerHTML = `
-
-
-            <p>
-
-                <strong>
-
-                    Customer:
-
-                </strong>
-
-                ${order.name}
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Email:
-
-                </strong>
-
-                ${order.email}
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Phone:
-
-                </strong>
-
-                ${order.phone}
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Address:
-
-                </strong>
-
-                ${order.address}
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Governorate:
-
-                </strong>
-
-                ${order.governorate}
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Payment Method:
-
-                </strong>
-
-                ${order.payment}
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Products:
-
-                </strong>
-
-                ${order.products}
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Subtotal:
-
-                </strong>
-
-                ${order.subtotal}
-
-                EGP
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Shipping:
-
-                </strong>
-
-                ${order.shipping}
-
-                EGP
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Total:
-
-                </strong>
-
-                ${order.total}
-
-                EGP
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Order Date:
-
-                </strong>
-
-                ${order.order_date}
-
-            </p>
-
-
-        `;
-
-
-        document
-
-            .getElementById(
-
-                "orderModal"
-
-            )
-
-            .classList
-
-            .add(
-
-                "show"
-
-            );
-
-    }
-
-
-    // ================= CLOSE ORDER MODAL =================
-
-
-    function closeOrderModal() {
-
-
-        document
-
-            .getElementById(
-
-                "orderModal"
-
-            )
-
-            .classList
-
-            .remove(
-
-                "show"
-
-            );
-
-    }
-
-
-    // ================= LOGOUT =================
-
-
-    const logoutBtn =
-
-        document.getElementById(
-
-            "logoutBtn"
-
-        );
-
-
-    logoutBtn.addEventListener(
-
-        "click",
-
-        async function() {
-
-
-            await supabaseClient
-
-                .auth
-
-                .signOut();
-
-
-            window.location.href =
-
-                "admin-login.html";
-
-
-        }
-
-    );
-
-// ================= TOAST =================
-
-function showToast(message) {
-
-    const toast = document.getElementById("toast");
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    }, 3000);
-
-}
-    // ================= START =================
-
-
-    async function startAdminDashboard() {
-
-
-        const isLoggedIn =
-
-            await checkAdminLogin();
-
-
-        if (isLoggedIn) {
 
 
             loadOrders();
 
         }
 
-    }
+
+        // ================= DELETE ORDER =================
 
 
-    startAdminDashboard();
+        async function deleteOrder(
+
+            orderId
+
+        ) {
 
 
-</script>
-```
-<div id="toast"></div>
+            const confirmDelete =
+
+                confirm(
+
+                    "Are you sure you want to delete this order?"
+
+                );
+
+
+            if (!confirmDelete) {
+
+                return;
+
+            }
+
+
+            const {
+
+                error
+
+            } = await supabaseClient
+
+                .from("orders")
+
+                .delete()
+
+                .eq(
+
+                    "id",
+
+                    orderId
+
+                );
+
+
+            if (error) {
+
+
+                console.error(
+
+                    "DELETE ORDER ERROR:",
+
+                    error
+
+                );
+
+
+                showToast(
+
+                    "Could not delete order."
+
+                );
+
+
+                return;
+
+            }
+
+
+            showToast(
+
+                "Order deleted successfully!"
+
+            );
+
+
+            loadOrders();
+
+        }
+
+
+        // ================= VIEW ORDER DETAILS =================
+
+
+        function viewOrderDetails(
+
+            order
+
+        ) {
+
+
+            const details =
+
+                document.getElementById(
+
+                    "orderDetails"
+
+                );
+
+
+            details.innerHTML = `
+
+
+                <p>
+
+                    <strong>
+
+                        Customer:
+
+                    </strong>
+
+                    ${order.name || ""}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Email:
+
+                    </strong>
+
+                    ${order.email || ""}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Phone:
+
+                    </strong>
+
+                    ${order.phone || ""}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Address:
+
+                    </strong>
+
+                    ${order.address || ""}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Governorate:
+
+                    </strong>
+
+                    ${order.governorate || ""}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Payment Method:
+
+                    </strong>
+
+                    ${order.payment || ""}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Products:
+
+                    </strong>
+
+                    ${order.products || ""}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Subtotal:
+
+                    </strong>
+
+                    ${order.subtotal || 0}
+
+                    EGP
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Shipping:
+
+                    </strong>
+
+                    ${order.shipping || 0}
+
+                    EGP
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Total:
+
+                    </strong>
+
+                    ${order.total || 0}
+
+                    EGP
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+
+                        Order Date:
+
+                    </strong>
+
+                    ${order.order_date || ""}
+
+                </p>
+
+
+            `;
+
+
+            document
+
+                .getElementById(
+
+                    "orderModal"
+
+                )
+
+                .classList
+
+                .add(
+
+                    "show"
+
+                );
+
+        }
+
+
+        // ================= CLOSE ORDER MODAL =================
+
+
+        function closeOrderModal() {
+
+
+            document
+
+                .getElementById(
+
+                    "orderModal"
+
+                )
+
+                .classList
+
+                .remove(
+
+                    "show"
+
+                );
+
+        }
+
+
+        // ================= VIEW MESSAGE DETAILS =================
+
+
+        function viewMessageDetails(
+
+            message
+
+        ) {
+
+
+            const details =
+
+                document.getElementById(
+
+                    "messageDetails"
+
+                );
+
+
+            details.innerHTML = `
+
+
+                <p>
+
+
+                    <strong>
+
+                        Name:
+
+                    </strong>
+
+
+                    ${message.name || ""}
+
+
+                </p>
+
+
+                <p>
+
+
+                    <strong>
+
+                        Email:
+
+                    </strong>
+
+
+                    ${message.email || ""}
+
+
+                </p>
+
+
+                <p>
+
+
+                    <strong>
+
+                        Message:
+
+                    </strong>
+
+
+                    ${message.message || ""}
+
+
+                </p>
+
+
+            `;
+
+
+            document
+
+                .getElementById(
+
+                    "messageModal"
+
+                )
+
+                .classList
+
+                .add(
+
+                    "show"
+
+                );
+
+        }
+
+
+        // ================= CLOSE MESSAGE MODAL =================
+
+
+        function closeMessageModal() {
+
+
+            document
+
+                .getElementById(
+
+                    "messageModal"
+
+                )
+
+                .classList
+
+                .remove(
+
+                    "show"
+
+                );
+
+        }
+
+
+        // ================= DELETE MESSAGE =================
+
+
+        async function deleteMessage(
+
+            messageId
+
+        ) {
+
+
+            const confirmDelete =
+
+                confirm(
+
+                    "Are you sure you want to delete this message?"
+
+                );
+
+
+            if (!confirmDelete) {
+
+                return;
+
+            }
+
+
+            const {
+
+                error
+
+            } = await supabaseClient
+
+                .from("messages")
+
+                .delete()
+
+                .eq(
+
+                    "id",
+
+                    messageId
+
+                );
+
+
+            if (error) {
+
+
+                console.error(
+
+                    "DELETE MESSAGE ERROR:",
+
+                    error
+
+                );
+
+
+                showToast(
+
+                    "Could not delete message."
+
+                );
+
+
+                return;
+
+            }
+
+
+            showToast(
+
+                "Message deleted successfully!"
+
+            );
+
+
+            loadMessages();
+
+        }
+
+
+        // ================= LOGOUT =================
+
+
+        document
+
+            .getElementById(
+
+                "logoutBtn"
+
+            )
+
+            .addEventListener(
+
+                "click",
+
+                async function() {
+
+
+                    await supabaseClient
+
+                        .auth
+
+                        .signOut();
+
+
+                    window.location.href =
+
+                        "admin-login.html";
+
+
+                }
+
+            );
+
+
+        // ================= TOAST =================
+
+
+        function showToast(
+
+            message
+
+        ) {
+
+
+            const toast =
+
+                document.getElementById(
+
+                    "toast"
+
+                );
+
+
+            toast.textContent =
+
+                message;
+
+
+            toast.classList.add(
+
+                "show"
+
+            );
+
+
+            setTimeout(
+
+                function() {
+
+
+                    toast.classList.remove(
+
+                        "show"
+
+                    );
+
+
+                },
+
+                3000
+
+            );
+
+        }
+
+
+        // ================= START DASHBOARD =================
+
+
+        async function startAdminDashboard() {
+
+
+            const isLoggedIn =
+
+                await checkAdminLogin();
+
+
+            if (!isLoggedIn) {
+
+                return;
+
+            }
+
+
+            await loadOrders();
+
+
+            await loadMessages();
+
+        }
+
+
+        startAdminDashboard();
+
+
+    </script>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast"></div>
+
+
 </body>
 
 </html>
