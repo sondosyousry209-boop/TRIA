@@ -2134,3 +2134,122 @@ footer p{
     }
 
 }
+/* ================= TRIA TOAST ================= */
+
+.tria-toast{
+    position: fixed;
+    top: 90px;
+    right: 25px;
+
+    width: 360px;
+    max-width: calc(100% - 30px);
+
+    background: linear-gradient(135deg, var(--dark), var(--brown));
+    color: var(--white);
+
+    border-left: 5px solid var(--gold);
+
+    border-radius: 18px;
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+
+    z-index: 999999;
+
+    opacity: 0;
+    transform: translateY(-30px);
+
+    transition: .4s ease;
+
+    overflow: hidden;
+}
+
+.tria-toast.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-icon{
+
+    width:48px;
+    height:48px;
+
+    background:var(--gold);
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:24px;
+    font-weight:bold;
+
+    flex-shrink:0;
+}
+
+.toast-content{
+
+    display:flex;
+    flex-direction:column;
+}
+
+.toast-content strong{
+
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    letter-spacing:1px;
+    color:var(--gold);
+}
+
+.toast-content span{
+
+    font-size:14px;
+    margin-top:4px;
+}
+
+.toast-progress{
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    height:4px;
+    width:100%;
+
+    background:var(--gold);
+
+    animation:toastProgress 3.5s linear forwards;
+}
+
+@keyframes toastProgress{
+
+    from{
+        width:100%;
+    }
+
+    to{
+        width:0%;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .tria-toast{
+
+        top:80px;
+
+        left:15px;
+        right:15px;
+
+        width:auto;
+    }
+
+}
