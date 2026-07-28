@@ -40,12 +40,7 @@ document
                 );
 
 
-                showToast(
-
-                    "✅ Product added to cart!"
-
-                );
-
+                showToast("Product added to cart successfully!");
             }
 
         );
